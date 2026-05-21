@@ -7,13 +7,13 @@ type Badge = {
 const badges: Badge[] = [
   {
     label: "Google Premier Partner",
-    tone: "text-[#1A73E8]",
+    tone: "text-[#43454B]",
     icon: (
       <svg viewBox="0 0 18 18" aria-hidden width="16" height="16">
-        <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#4285F4" />
-        <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#34A853" />
-        <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#FBBC05" />
-        <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#EA4335" />
+        <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#43454B" />
+        <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#43454B" />
+        <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#43454B" />
+        <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#43454B" />
       </svg>
     ),
   },
@@ -30,7 +30,7 @@ const badges: Badge[] = [
   },
   {
     label: "Sub-60s Lead Response",
-    tone: "text-emerald-600",
+    tone: "text-brand-600",
     icon: (
       <svg viewBox="0 0 16 16" fill="none" aria-hidden width="16" height="16">
         <circle cx="8" cy="8" r="6.4" stroke="currentColor" strokeWidth="1.5" />
@@ -40,7 +40,7 @@ const badges: Badge[] = [
   },
   {
     label: "SEO + AEO + GEO",
-    tone: "text-orange-600",
+    tone: "text-brand-600",
     icon: (
       <svg viewBox="0 0 16 16" fill="none" aria-hidden width="16" height="16">
         <circle cx="8" cy="8" r="6.4" stroke="currentColor" strokeWidth="1.5" />
@@ -50,7 +50,7 @@ const badges: Badge[] = [
   },
   {
     label: "Real-Time ROI Dashboard",
-    tone: "text-violet-600",
+    tone: "text-brand-600",
     icon: (
       <svg viewBox="0 0 16 16" fill="none" aria-hidden width="16" height="16">
         <path d="M2 13L6 8L9 11L14 4 M10.5 4H14V7.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -59,7 +59,7 @@ const badges: Badge[] = [
   },
   {
     label: "Trusted Across North America",
-    tone: "text-sky-600",
+    tone: "text-brand-600",
     icon: (
       <svg viewBox="0 0 16 16" fill="none" aria-hidden width="16" height="16">
         <path d="M8 14.5C8 14.5 13 10.5 13 6.5C13 3.7 10.8 1.5 8 1.5C5.2 1.5 3 3.7 3 6.5C3 10.5 8 14.5 8 14.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
@@ -77,7 +77,7 @@ export function LogoCloud() {
       className="relative py-6 md:py-8"
       style={{
         background:
-          "linear-gradient(180deg, #faf9f7 0%, #f1eefb 100%)",
+          "linear-gradient(180deg, #faf9f7 0%, #faf9f7 100%)",
       }}
     >
       <div className="relative overflow-hidden">
@@ -86,7 +86,7 @@ export function LogoCloud() {
           className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32"
           style={{
             background:
-              "linear-gradient(90deg, #f1eefb 0%, rgba(241,238,251,0.85) 60%, transparent 100%)",
+              "linear-gradient(90deg, #faf9f7 0%, rgba(250,249,247,0.85) 60%, transparent 100%)",
           }}
         />
         <div
@@ -94,7 +94,7 @@ export function LogoCloud() {
           className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32"
           style={{
             background:
-              "linear-gradient(-90deg, #f1eefb 0%, rgba(241,238,251,0.85) 60%, transparent 100%)",
+              "linear-gradient(-90deg, #faf9f7 0%, rgba(250,249,247,0.85) 60%, transparent 100%)",
           }}
         />
         <ul

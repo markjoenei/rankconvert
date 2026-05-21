@@ -30,7 +30,7 @@ const SCENES: Scene[] = [
     objectPosition: "center top",
     bubble: "Recall 600 overdue patients within minutes",
     stat: { value: "+22%", label: "production" },
-    chip: { dotColor: "bg-emerald-500", text: "0 missed calls today" },
+    chip: { dotColor: "bg-brand-500", text: "0 missed calls today" },
     accent: { kind: "triangle", color: "var(--color-accent-blush)" },
     accentLabel: { text: "AI recall", tone: "bg-accent-butter text-ink" },
   },
@@ -42,7 +42,7 @@ const SCENES: Scene[] = [
     scale: 1.05,
     bubble: "Fill every chair-hour, automatically",
     stat: { value: "−42%", label: "no-shows" },
-    chip: { dotColor: "bg-sky-500", text: "Chairs 96% booked this week" },
+    chip: { dotColor: "bg-brand-500", text: "Chairs 96% booked this week" },
     accent: { kind: "bars", color1: "var(--color-brand-400)", color2: "var(--color-accent-butter)" },
     accentLabel: { text: "Smart scheduler", tone: "bg-accent-sky text-ink" },
   },
@@ -77,7 +77,7 @@ export function HeroCollage() {
           className="absolute inset-x-10 top-10 bottom-0 rounded-[40px] blur-3xl opacity-50 animate-scene-in"
           style={{
             background:
-              "radial-gradient(60% 60% at 50% 50%, rgba(91,72,192,0.45), transparent 70%)",
+              "radial-gradient(60% 60% at 50% 50%, rgba(67,69,75,0.45), transparent 70%)",
             animationDelay: "0ms",
           }}
         />
@@ -100,7 +100,7 @@ export function HeroCollage() {
               className="absolute inset-0 animate-grid-drift"
               style={{
                 backgroundImage:
-                  "linear-gradient(rgba(91,72,192,0.55) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(91,72,192,0.55) 1.5px, transparent 1.5px)",
+                  "linear-gradient(rgba(67,69,75,0.55) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(67,69,75,0.55) 1.5px, transparent 1.5px)",
                 backgroundSize: "44px 44px",
               }}
             />

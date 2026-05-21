@@ -74,7 +74,7 @@ function PlatformVisual() {
           className="absolute -inset-4 rounded-[48px] blur-3xl opacity-70"
           style={{
             background:
-              "radial-gradient(60% 60% at 50% 50%, rgba(91,72,192,0.45), transparent 70%)",
+              "radial-gradient(60% 60% at 50% 50%, rgba(67,69,75,0.45), transparent 70%)",
           }}
         />
 
@@ -84,7 +84,7 @@ function PlatformVisual() {
           className="absolute inset-[6%] rounded-[28px] overflow-hidden"
           style={{
             background:
-              "linear-gradient(180deg, #faf9f7 0%, #f2eefb 100%)",
+              "linear-gradient(180deg, #faf9f7 0%, #faf9f7 100%)",
             border: "1px solid var(--color-border)",
           }}
         >
@@ -92,7 +92,7 @@ function PlatformVisual() {
             className="absolute inset-0 opacity-60"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(91,72,192,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.08) 1px, transparent 1px)",
+                "linear-gradient(rgba(67,69,75,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.08) 1px, transparent 1px)",
               backgroundSize: "32px 32px",
             }}
           />
@@ -108,9 +108,9 @@ function PlatformVisual() {
         >
           <defs>
             <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="rgba(91,72,192,0.05)" />
-              <stop offset="50%" stopColor="rgba(91,72,192,0.55)" />
-              <stop offset="100%" stopColor="rgba(91,72,192,0.05)" />
+              <stop offset="0%" stopColor="rgba(67,69,75,0.05)" />
+              <stop offset="50%" stopColor="rgba(67,69,75,0.55)" />
+              <stop offset="100%" stopColor="rgba(67,69,75,0.05)" />
             </linearGradient>
           </defs>
           <g stroke="url(#lineGrad)" strokeWidth="1.6" fill="none">
@@ -121,7 +121,7 @@ function PlatformVisual() {
             <path d="M480 300 C 400 310, 360 320, 300 336" />
             <path d="M480 480 C 380 440, 340 380, 300 336" />
           </g>
-          <g stroke="rgba(91,72,192,0.7)" strokeWidth="1.4" strokeDasharray="3 6" fill="none">
+          <g stroke="rgba(67,69,75,0.7)" strokeWidth="1.4" strokeDasharray="3 6" fill="none">
             <path d="M120 90 C 220 110, 260 240, 300 336">
               <animate attributeName="stroke-dashoffset" from="0" to="-36" dur="4s" repeatCount="indefinite" />
             </path>
@@ -149,12 +149,12 @@ function PlatformVisual() {
             {/* Header bar */}
             <div className="flex items-center justify-between border-b border-border bg-subtle/60 px-4 py-3">
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-red-400" />
-                <span className="h-2 w-2 rounded-full bg-amber-300" />
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                <span className="h-2 w-2 rounded-full bg-brand-400" />
+                <span className="h-2 w-2 rounded-full bg-brand-300" />
+                <span className="h-2 w-2 rounded-full bg-brand-400" />
               </div>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink shadow-card">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse" />
                 Live · PracPros IQ
               </span>
             </div>
@@ -186,7 +186,7 @@ function PlatformVisual() {
                     +38%
                   </div>
                 </div>
-                <span className="rounded-full bg-emerald-500/95 px-2 py-0.5 text-[10.5px] font-semibold text-white">
+                <span className="rounded-full bg-brand-500/95 px-2 py-0.5 text-[10.5px] font-semibold text-white">
                   ▲ on target
                 </span>
               </div>
@@ -263,60 +263,40 @@ export function Platform() {
   return (
     <section
       id="platform"
-      className="relative isolate overflow-hidden py-20 md:py-28 text-white"
-      style={{
-        background:
-          "linear-gradient(135deg, #0B3754 0%, #104A6F 45%, #2A2670 100%)",
-      }}
+      className="relative isolate overflow-hidden py-20 md:py-28 text-ink"
+      style={{ background: "#faf9f7" }}
     >
-      {/* Grid pattern overlay */}
+      {/* Soft brand grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.05) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 95%)",
+            "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 95%)",
-        }}
-      />
-      {/* Subtle brand glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -right-24 h-[480px] w-[480px] rounded-full blur-3xl opacity-40 -z-[1]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(132,112,213,0.55), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-35 -z-[1]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(75,180,220,0.45), transparent 70%)",
+            "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
         }}
       />
 
       <div className="container-page relative">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:items-center">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[12px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-300" aria-hidden />
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-soft backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-500" aria-hidden />
               The PracPros Platform
             </span>
-            <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.04] font-semibold tracking-[-0.028em] text-white">
+            <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
               You Have Marketing.
               <span className="block">
                 What You Don&rsquo;t Have Is a{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10 italic" style={{ color: "#F37021" }}>System</span>
+                  <span className="relative z-10" style={{ color: "#FF521C" }}>System</span>
                   <span
                     aria-hidden
-                    className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter/40"
+                    className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter/60"
                     style={{ filter: "blur(0.5px)" }}
                   />
                 </span>
@@ -324,7 +304,7 @@ export function Platform() {
               </span>
             </h2>
 
-            <div className="mt-6 space-y-5 text-[16.5px] leading-[1.65] text-white/85">
+            <div className="mt-6 space-y-5 text-[16.5px] leading-[1.65] text-ink-soft">
               <p>
                 Most dental practices are failing because their marketing is
                 fragmented. A website, maybe some SEO, Google Ads, a social
@@ -348,9 +328,9 @@ export function Platform() {
                 into booked appointments without relying on a perfect front-desk
                 day.
               </p>
-              <p className="font-semibold text-white">
+              <p className="font-semibold text-ink">
                 Most practices don&rsquo;t have that system.{" "}
-                <span className="text-brand-300">PRACPROS builds it.</span>
+                <span className="text-brand-600">PRACPROS builds it.</span>
               </p>
             </div>
 
@@ -360,15 +340,13 @@ export function Platform() {
                 variant="primary"
                 size="md"
                 trailingIcon
-                className="!bg-white !text-ink hover:!bg-white"
               >
                 Get a Free Growth Audit
               </Button>
               <Button
                 href="#platform"
                 size="md"
-                variant="ghost"
-                className="!bg-white/10 !text-white border border-white/25 backdrop-blur-md hover:!bg-white/15"
+                variant="secondary"
               >
                 Explore the platform
               </Button>

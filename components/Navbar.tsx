@@ -26,10 +26,11 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      style={{ backgroundColor: "#43454B" }}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 text-white ${
         scrolled
-          ? "bg-white backdrop-blur-xl border-b border-border shadow-[0_1px_0_rgba(10,10,10,0.04)]"
-          : "bg-white border-b border-border"
+          ? "backdrop-blur-xl border-b border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.04)]"
+          : "border-b border-white/10"
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-[72px]">
@@ -37,16 +38,16 @@ export function Navbar() {
           <Link
             href="/"
             aria-label="PracPros home"
-            className="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+            className="rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300"
           >
-            <Logo />
+            <Logo invert />
           </Link>
           <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative rounded-full px-3 py-1.5 text-[14px] font-medium text-ink-soft transition-colors hover:text-ink"
+                className="relative rounded-full px-3 py-1.5 text-[14px] font-medium text-white/75 transition-colors hover:text-white"
               >
                 {item.label}
               </Link>
@@ -57,14 +58,25 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           <Link
             href="#login"
-            className="text-[14px] font-medium text-ink-soft hover:text-ink px-3 py-2 transition-colors"
+            className="text-[14px] font-medium text-white/75 hover:text-white px-3 py-2 transition-colors"
           >
             Log in
           </Link>
-          <Button href="#demo" variant="secondary" size="sm">
+          <Button
+            href="#demo"
+            variant="secondary"
+            size="sm"
+            className="!bg-[#FF521C] !border-[#FF521C] !text-white hover:!bg-[#e0461a] hover:!border-[#e0461a]"
+          >
             Book a demo
           </Button>
-          <Button href="#start" variant="primary" size="sm" trailingIcon>
+          <Button
+            href="#start"
+            variant="primary"
+            size="sm"
+            trailingIcon
+            className="!bg-white !text-ink hover:!bg-white/90"
+          >
             Start free
           </Button>
         </div>
@@ -74,7 +86,7 @@ export function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white/60 backdrop-blur"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur text-white"
         >
           <span className="sr-only">Toggle menu</span>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
@@ -91,23 +103,37 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
+        <div
+          className="md:hidden border-t border-white/10 backdrop-blur-xl"
+          style={{ backgroundColor: "#43454B" }}
+        >
           <div className="container-page py-4 flex flex-col gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-subtle"
+                className="rounded-lg px-3 py-2.5 text-[15px] font-medium text-white hover:bg-white/10"
               >
                 {item.label}
               </Link>
             ))}
-            <div className="mt-3 flex flex-col gap-2 border-t border-border pt-4">
-              <Button href="#demo" variant="secondary" size="md" className="w-full">
+            <div className="mt-3 flex flex-col gap-2 border-t border-white/10 pt-4">
+              <Button
+                href="#demo"
+                variant="secondary"
+                size="md"
+                className="w-full !bg-[#FF521C] !border-[#FF521C] !text-white hover:!bg-[#e0461a] hover:!border-[#e0461a]"
+              >
                 Book a demo
               </Button>
-              <Button href="#start" variant="primary" size="md" className="w-full" trailingIcon>
+              <Button
+                href="#start"
+                variant="primary"
+                size="md"
+                className="w-full !bg-white !text-ink hover:!bg-white/90"
+                trailingIcon
+              >
                 Start free
               </Button>
             </div>

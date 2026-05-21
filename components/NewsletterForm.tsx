@@ -27,7 +27,7 @@ export function NewsletterForm() {
       />
       <button
         type="submit"
-        className="rounded-full bg-ink px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-brand-600 disabled:opacity-70"
+        className="rounded-full bg-[#FF521C] px-4 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#e0461a] disabled:opacity-70"
         disabled={submitted}
       >
         {submitted ? "Subscribed" : "Subscribe"}

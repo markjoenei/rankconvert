@@ -4,27 +4,23 @@ import { Button } from "./ui/Button";
 
 export function Stories() {
   return (
-    <section id="stories" className="relative overflow-hidden py-20 md:py-28">
-      {/* Soft brand grid backdrop */}
+    <section
+      id="stories"
+      className="relative overflow-hidden py-20 md:py-28"
+      style={{ background: "#faf9f7" }}
+    >
+      {/* Soft brand grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,72,192,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.06) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.05) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
           WebkitMaskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[520px] w-[820px] rounded-full blur-3xl opacity-50 -z-[1]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(132,112,213,0.35), transparent 70%)",
         }}
       />
 
@@ -36,7 +32,7 @@ export function Stories() {
             <span className="block lg:whitespace-nowrap">
               Full-Time{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 italic text-brand-600">Patient Acquisition</span>
+                <span className="relative z-10 text-[#FF521C]">Patient Acquisition</span>
                 <span
                   aria-hidden
                   className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter"
@@ -254,7 +250,7 @@ function ClientImageTile({
       />
       {tag && (
         <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
           {tag}
         </span>
       )}
@@ -405,7 +401,7 @@ function SpeedVisual() {
             <div key={m.label} className="flex items-center gap-2">
               <span className="w-6 font-mono font-semibold text-ink">{m.label}</span>
               <div className="h-1 flex-1 overflow-hidden rounded-full bg-ink/10">
-                <div className="h-full rounded-full bg-emerald-500" style={{ width: `${m.pct}%` }} />
+                <div className="h-full rounded-full bg-brand-500" style={{ width: `${m.pct}%` }} />
               </div>
               <span className="w-10 text-right font-mono font-semibold text-ink-soft">{m.value}</span>
             </div>
@@ -457,10 +453,10 @@ function EngagementVisual() {
         </svg>
 
         {/* Output */}
-        <div className="rounded-xl bg-emerald-500/20 p-2.5 text-center">
+        <div className="rounded-xl bg-brand-500/20 p-2.5 text-center">
           <div className="font-display text-[16px] font-semibold leading-none text-white">Booked</div>
-          <div className="mt-1 inline-flex items-center gap-1 text-[9.5px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="mt-1 inline-flex items-center gap-1 text-[9.5px] font-semibold uppercase tracking-[0.14em] text-brand-200">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-400 animate-pulse" />
             live
           </div>
         </div>

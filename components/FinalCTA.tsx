@@ -10,7 +10,7 @@ export function FinalCTA() {
             className="absolute inset-0 opacity-50"
             style={{
               background:
-                "radial-gradient(120% 80% at 100% 0%, rgba(132, 112, 213, 0.45), transparent 60%), radial-gradient(80% 60% at 0% 100%, rgba(91,72,192,0.4), transparent 60%)",
+                "radial-gradient(120% 80% at 100% 0%, rgba(132, 112, 213, 0.45), transparent 60%), radial-gradient(80% 60% at 0% 100%, rgba(67,69,75,0.4), transparent 60%)",
             }}
           />
           <div aria-hidden className="absolute inset-0 grid-bg opacity-[0.06]" />
@@ -20,7 +20,7 @@ export function FinalCTA() {
               <h2 className="font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.04] font-semibold tracking-[-0.028em] text-white">
                 Spend your day{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10 italic" style={{ color: "#F37021" }}>chairside</span>
+                  <span className="relative z-10" style={{ color: "#FF521C" }}>chairside</span>
                   <span
                     aria-hidden
                     className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter/40"
@@ -63,8 +63,8 @@ export function FinalCTA() {
                   <div className="rounded-2xl bg-white p-5">
                     <div className="flex items-center justify-between text-[11px] font-medium uppercase tracking-[0.14em] text-ink/60">
                       Today
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-emerald-700">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <span className="inline-flex items-center gap-1 rounded-full bg-brand-100 px-2 py-0.5 text-brand-700">
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
                         Schedule full
                       </span>
                     </div>

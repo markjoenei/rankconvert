@@ -18,7 +18,7 @@ const pillars: Pillar[] = [
     title: "Rank for every service you provide.",
     body: "Google rankings, technical SEO, authority content, structured data, and backlink strategies that put your practice at the top of search results for every service you provide.",
     accent: "bg-accent-mint",
-    accentText: "text-emerald-700",
+    accentText: "text-brand-700",
     badge: <GoogleMark />,
     visual: <SeoVisual />,
   },
@@ -28,7 +28,7 @@ const pillars: Pillar[] = [
     title: "Own the local 3-pack.",
     body: "Local pack rankings, Google Business Profile management, citation consistency, and the review signals that determine whether Google shows your practice or your competitor's in the map results.",
     accent: "bg-accent-blush",
-    accentText: "text-rose-600",
+    accentText: "text-brand-600",
     badge: <PinMark />,
     visual: <MapsVisual />,
   },
@@ -38,7 +38,7 @@ const pillars: Pillar[] = [
     title: "Appear above the rankings.",
     body: "Your practice optimized to appear in featured snippets, knowledge panels, and AI-generated answer results — the positions that now appear above traditional rankings on many searches.",
     accent: "bg-accent-sky",
-    accentText: "text-sky-700",
+    accentText: "text-brand-700",
     badge: <SparkleMark />,
     visual: <AeoVisual />,
   },
@@ -48,7 +48,7 @@ const pillars: Pillar[] = [
     title: "Get recommended by the AIs your patients ask.",
     body: "As patients increasingly use AI tools like ChatGPT, Gemini, and Perplexity to find healthcare providers, GEO ensures your practice appears in those recommendations. This is the frontier of dental search visibility — and we're building for it now.",
     accent: "bg-accent-lavender",
-    accentText: "text-violet-700",
+    accentText: "text-brand-700",
     badge: <NewBadge />,
     visual: <GeoVisual />,
   },
@@ -63,7 +63,7 @@ export function Trust() {
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,72,192,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.06) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.06) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
@@ -76,7 +76,7 @@ export function Trust() {
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[520px] w-[820px] rounded-full blur-3xl opacity-50 -z-[1]"
         style={{
           background:
-            "radial-gradient(circle, rgba(132,112,213,0.35), transparent 70%)",
+            "radial-gradient(circle, rgba(67,69,75,0.35), transparent 70%)",
         }}
       />
 
@@ -90,7 +90,7 @@ export function Trust() {
           <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
             Search Has{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 italic text-brand-600">Changed.</span>
+              <span className="relative z-10 text-[#FF521C]">Changed.</span>
               <span
                 aria-hidden
                 className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter"
@@ -182,10 +182,10 @@ export function Trust() {
 function GoogleMark() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden>
-      <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#4285F4" />
-      <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#34A853" />
-      <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#FBBC05" />
-      <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#EA4335" />
+      <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#43454B" />
+      <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#43454B" />
+      <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#43454B" />
+      <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#43454B" />
     </svg>
   );
 }
@@ -211,7 +211,7 @@ function SparkleMark() {
 
 function NewBadge() {
   return (
-    <span className="font-display text-[10px] font-bold tracking-[0.06em]" style={{ color: "#F37021" }}>
+    <span className="font-display text-[10px] font-bold tracking-[0.06em]" style={{ color: "#FF521C" }}>
       NEW
     </span>
   );
@@ -224,20 +224,20 @@ function SeoVisual() {
   return (
     <div className="space-y-1.5 rounded-xl bg-white/85 p-3 shadow-card">
       <div className="flex items-center gap-1.5">
-        <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-700">
+        <span className="rounded bg-brand-100 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-brand-700">
           Ad
         </span>
         <div className="h-1.5 w-20 rounded-full bg-ink/15" />
       </div>
-      <div className="rounded-md border border-emerald-300 bg-emerald-50/60 p-2">
+      <div className="rounded-md border border-brand-300 bg-brand-50/60 p-2">
         <div className="flex items-center justify-between">
-          <div className="text-[10.5px] font-semibold text-emerald-700">
+          <div className="text-[10.5px] font-semibold text-brand-700">
             yourpractice.com
           </div>
-          <span className="font-mono text-[9px] font-bold text-emerald-700">#1</span>
+          <span className="font-mono text-[9px] font-bold text-brand-700">#1</span>
         </div>
-        <div className="mt-1 h-1 w-3/4 rounded-full bg-emerald-200" />
-        <div className="mt-1 h-1 w-2/3 rounded-full bg-emerald-200" />
+        <div className="mt-1 h-1 w-3/4 rounded-full bg-brand-200" />
+        <div className="mt-1 h-1 w-2/3 rounded-full bg-brand-200" />
       </div>
       <div className="space-y-1 p-1.5 opacity-60">
         <div className="h-1 w-1/2 rounded-full bg-ink/15" />
@@ -253,20 +253,20 @@ function MapsVisual() {
     <div className="relative h-[110px] overflow-hidden rounded-xl bg-white/85 shadow-card">
       {/* fake map roads */}
       <svg viewBox="0 0 200 120" className="absolute inset-0 h-full w-full" preserveAspectRatio="none" aria-hidden>
-        <rect width="200" height="120" fill="#f4f4f3" />
+        <rect width="200" height="120" fill="#faf9f7" />
         <path d="M-10 30 L 220 60" stroke="rgba(10,10,10,0.08)" strokeWidth="14" />
         <path d="M-10 80 L 220 50" stroke="rgba(10,10,10,0.08)" strokeWidth="10" />
         <path d="M60 -10 L 90 130" stroke="rgba(10,10,10,0.08)" strokeWidth="8" />
         <path d="M140 -10 L 130 130" stroke="rgba(10,10,10,0.08)" strokeWidth="8" />
       </svg>
       {/* pins */}
-      <div className="absolute left-[20%] top-[28%] grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full bg-rose-500 text-[10px] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
+      <div className="absolute left-[20%] top-[28%] grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full bg-brand-500 text-[10px] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
         1
       </div>
-      <div className="absolute left-[58%] top-[20%] grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full bg-rose-500 text-[10px] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
+      <div className="absolute left-[58%] top-[20%] grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full bg-brand-500 text-[10px] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
         2
       </div>
-      <div className="absolute left-[75%] top-[58%] grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full bg-rose-500 text-[10px] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
+      <div className="absolute left-[75%] top-[58%] grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full bg-brand-500 text-[10px] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
         3
       </div>
       <span className="absolute bottom-2 left-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-ink shadow-card">
@@ -279,22 +279,22 @@ function MapsVisual() {
 function AeoVisual() {
   // Mock answer box
   return (
-    <div className="rounded-xl border border-sky-200 bg-white/90 p-3 shadow-card">
+    <div className="rounded-xl border border-brand-200 bg-white/90 p-3 shadow-card">
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-1 rounded-full bg-sky-100 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-sky-700">
+        <span className="inline-flex items-center gap-1 rounded-full bg-brand-100 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-wider text-brand-700">
           <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden>
             <path d="M4.5 1l1 2 2 .5-1.5 1.3.5 2L4.5 6 2.5 6.8l.5-2L1.5 3.5l2-.5L4.5 1z" fill="currentColor" />
           </svg>
           Featured Answer
         </span>
-        <span className="font-mono text-[9.5px] font-bold text-sky-700">Top</span>
+        <span className="font-mono text-[9.5px] font-bold text-brand-700">Top</span>
       </div>
       <div className="mt-2 space-y-1">
-        <div className="h-1.5 w-3/4 rounded-full bg-sky-200" />
-        <div className="h-1.5 w-2/3 rounded-full bg-sky-200" />
-        <div className="h-1.5 w-1/2 rounded-full bg-sky-100" />
+        <div className="h-1.5 w-3/4 rounded-full bg-brand-200" />
+        <div className="h-1.5 w-2/3 rounded-full bg-brand-200" />
+        <div className="h-1.5 w-1/2 rounded-full bg-brand-100" />
       </div>
-      <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-semibold text-sky-700">
+      <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-semibold text-brand-700">
         yourpractice.com
         <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden>
           <path d="M2 4.5h5m0 0L4.5 2m2.5 2.5L4.5 7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
@@ -307,9 +307,9 @@ function AeoVisual() {
 function GeoVisual() {
   // AI assistants list
   const assistants = [
-    { name: "ChatGPT", color: "bg-emerald-500" },
-    { name: "Gemini", color: "bg-sky-500" },
-    { name: "Perplexity", color: "bg-violet-500" },
+    { name: "ChatGPT", color: "bg-brand-500" },
+    { name: "Gemini", color: "bg-brand-500" },
+    { name: "Perplexity", color: "bg-brand-500" },
   ];
   return (
     <div className="rounded-xl bg-white/90 p-3 shadow-card">
@@ -320,13 +320,13 @@ function GeoVisual() {
         {assistants.map((a) => (
           <div
             key={a.name}
-            className="flex items-center justify-between rounded-md bg-violet-50/60 px-2 py-1.5"
+            className="flex items-center justify-between rounded-md bg-brand-50/60 px-2 py-1.5"
           >
             <div className="flex items-center gap-2">
               <span className={`h-2.5 w-2.5 rounded-full ${a.color}`} />
               <span className="text-[11.5px] font-semibold text-ink">{a.name}</span>
             </div>
-            <span className="inline-flex items-center gap-1 rounded-full bg-white px-1.5 py-0.5 text-[9.5px] font-bold text-violet-700">
+            <span className="inline-flex items-center gap-1 rounded-full bg-white px-1.5 py-0.5 text-[9.5px] font-bold text-brand-700">
               <svg width="8" height="8" viewBox="0 0 9 9" fill="none" aria-hidden>
                 <path d="M2 4.5l1.5 1.5L7 2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

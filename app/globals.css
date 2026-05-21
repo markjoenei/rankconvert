@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
-  --color-muted: #6b6b6b;
-  --color-subtle: #f4f4f3;
-  --color-border: rgba(10, 10, 10, 0.08);
-  --color-border-strong: rgba(10, 10, 10, 0.16);
+  --color-background: #faf9f7;
+  --color-foreground: #43454B;
+  --color-muted: #7c7f86;
+  --color-subtle: #f4f3f1;
+  --color-border: rgba(67, 69, 75, 0.12);
+  --color-border-strong: rgba(67, 69, 75, 0.22);
 
-  --color-ink: #0a0a0a;
-  --color-ink-soft: #2a2a2a;
+  --color-ink: #43454B;
+  --color-ink-soft: #5a5d65;
   --color-paper: #faf9f7;
 
-  --color-brand-50: #f1eefb;
-  --color-brand-100: #e3ddf7;
-  --color-brand-200: #c8bdef;
-  --color-brand-300: #a596e3;
-  --color-brand-400: #8470d5;
-  --color-brand-500: #5b48c0;
-  --color-brand-600: #4a37a8;
-  --color-brand-700: #3a2b85;
-  --color-brand-900: #1d1546;
+  --color-brand-50: #ffece4;
+  --color-brand-100: #ffd6c4;
+  --color-brand-200: #ffb799;
+  --color-brand-300: #ff916a;
+  --color-brand-400: #ff7142;
+  --color-brand-500: #FF521C;
+  --color-brand-600: #e0461a;
+  --color-brand-700: #b8390f;
+  --color-brand-900: #5f1c05;
 
-  --color-accent-mint: #d8f0d6;
-  --color-accent-blush: #f8d7d0;
-  --color-accent-butter: #fbe7a4;
-  --color-accent-sky: #d3e7f4;
-  --color-accent-lavender: #e8e0f7;
+  --color-accent-mint: #f4f3f1;
+  --color-accent-blush: #ffece4;
+  --color-accent-butter: #ffd9c4;
+  --color-accent-sky: #ebecee;
+  --color-accent-lavender: #f4f3f1;
 
   --font-sans: var(--font-sans-geist);
   --font-display: var(--font-display-geist);
   --font-mono: var(--font-mono-geist);
 
-  --shadow-card: 0 1px 0 rgba(10, 10, 10, 0.04), 0 8px 24px -12px rgba(10, 10, 10, 0.08);
-  --shadow-card-hover: 0 1px 0 rgba(10, 10, 10, 0.05), 0 20px 48px -20px rgba(10, 10, 10, 0.16);
-  --shadow-pop: 0 24px 60px -24px rgba(91, 72, 192, 0.35);
+  --shadow-card: 0 1px 0 rgba(67, 69, 75, 0.05), 0 8px 24px -12px rgba(67, 69, 75, 0.12);
+  --shadow-card-hover: 0 1px 0 rgba(67, 69, 75, 0.06), 0 20px 48px -20px rgba(67, 69, 75, 0.2);
+  --shadow-pop: 0 24px 60px -24px rgba(255, 82, 28, 0.35);
 }
 
 html {
@@ -52,8 +52,8 @@ body {
 }
 
 ::selection {
-  background: rgba(91, 72, 192, 0.18);
-  color: #1d1546;
+  background: rgba(255, 82, 28, 0.22);
+  color: #43454B;
 }
 
 @utility container-page {
@@ -76,14 +76,14 @@ body {
 }
 
 @utility grid-bg {
-  background-image: linear-gradient(rgba(10, 10, 10, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 10, 10, 0.06) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(67, 69, 75, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 69, 75, 0.08) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 @utility grid-bg-soft {
-  background-image: linear-gradient(rgba(91, 72, 192, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(91, 72, 192, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(67, 69, 75, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 69, 75, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 

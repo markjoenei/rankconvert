@@ -76,7 +76,7 @@ export function SideElements() {
         >
           <div className="flex items-center justify-between">
             <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse" />
               Live · PracPros IQ
             </span>
           </div>
@@ -97,7 +97,7 @@ export function SideElements() {
           className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-2 shadow-card animate-float-soft"
           style={{ animationDuration: "8s", animationDelay: "0.6s" }}
         >
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-accent-mint text-emerald-700">
+          <span className="grid h-6 w-6 place-items-center rounded-full bg-accent-mint text-brand-700">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
               <path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -136,7 +136,7 @@ export function SideElements() {
           style={{ animationDuration: "8.5s" }}
         >
           <div className="flex items-center gap-2">
-            <span className="grid h-7 w-7 place-items-center rounded-lg bg-accent-sky text-sky-700">
+            <span className="grid h-7 w-7 place-items-center rounded-lg bg-accent-sky text-brand-700">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
                 <circle cx="8" cy="8" r="6.4" stroke="currentColor" strokeWidth="1.5" />
                 <path d="M8 4.5V8L10.4 9.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -168,7 +168,7 @@ export function SideElements() {
           className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-2 shadow-card animate-float-soft"
           style={{ animationDuration: "7.5s", animationDelay: "0.4s" }}
         >
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-accent-butter text-amber-600">
+          <span className="grid h-6 w-6 place-items-center rounded-full bg-accent-butter text-brand-600">
             <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden>
               <path d="M8 1l2 4.5 5 .5-3.7 3.3 1.2 5L8 11.7 3.5 14.3l1.2-5L1 6l5-.5L8 1z" fill="currentColor" />
             </svg>

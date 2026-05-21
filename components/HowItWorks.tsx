@@ -9,7 +9,7 @@ const steps = [
     body: "We map your market, competitors, visibility gaps, and highest-value patient acquisition opportunities before we build anything.",
     tag: "Discovery",
     tone: "bg-accent-mint",
-    accentHex: "#4caf69",
+    accentHex: "#FF521C",
     person: "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=160&q=80",
     person2: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=160&q=80",
     leadName: "Sarah · Strategist",
@@ -21,7 +21,7 @@ const steps = [
     body: "Website, campaigns, automation, lead engagement, tracking, and reputation systems — launched as one connected engine, not five separate projects.",
     tag: "Build",
     tone: "bg-accent-blush",
-    accentHex: "#f08a7a",
+    accentHex: "#FF7142",
     person: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
     person2: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80",
     leadName: "Maya · Lead Engineer",
@@ -33,7 +33,7 @@ const steps = [
     body: "Continuous improvement of rankings, conversion rates, lead quality, and ROI — informed by the data your dashboard generates every day.",
     tag: "Operate",
     tone: "bg-accent-sky",
-    accentHex: "#5ea9d4",
+    accentHex: "#43454B",
     person: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80",
     person2: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=160&q=80",
     leadName: "Alex · Growth Ops",
@@ -49,7 +49,7 @@ export function HowItWorks() {
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,72,192,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.05) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.05) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
@@ -68,7 +68,7 @@ export function HowItWorks() {
           <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[60px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
             Three Steps to a{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 italic text-brand-600">Growth System</span>
+              <span className="relative z-10 text-[#FF521C]">Growth System</span>
               <span
                 aria-hidden
                 className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter"
@@ -87,7 +87,7 @@ export function HowItWorks() {
             className="pointer-events-none absolute left-0 right-0 top-[88px] hidden md:block"
           >
             <svg viewBox="0 0 1200 4" className="h-1 w-full" preserveAspectRatio="none">
-              <line x1="0" y1="2" x2="1200" y2="2" stroke="rgba(91,72,192,0.25)" strokeWidth="2" strokeDasharray="6 8" />
+              <line x1="0" y1="2" x2="1200" y2="2" stroke="rgba(67,69,75,0.25)" strokeWidth="2" strokeDasharray="6 8" />
             </svg>
           </div>
 

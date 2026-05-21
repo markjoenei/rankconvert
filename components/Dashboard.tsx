@@ -1,28 +1,26 @@
+import Image from "next/image";
 import { Button } from "./ui/Button";
 import { Reveal } from "./Reveal";
 
 const sources = [
-  { label: "Google Search", value: 42, color: "#4285F4" },
-  { label: "Google Maps", value: 28, color: "#34A853" },
-  { label: "Social / Reels", value: 18, color: "#F37021" },
-  { label: "Referrals", value: 12, color: "#5b48c0" },
+  { label: "Google Search", value: 42, color: "#FF521C" },
+  { label: "Google Maps", value: 28, color: "#FF916A" },
+  { label: "Social / Reels", value: 18, color: "#FFB799" },
+  { label: "Referrals", value: 12, color: "#43454B" },
 ];
 
 export function Dashboard() {
   return (
     <section
-      className="relative isolate overflow-hidden py-20 md:py-28 text-white"
-      style={{
-        background:
-          "linear-gradient(135deg, #0B3754 0%, #104A6F 45%, #2A2670 100%)",
-      }}
+      className="relative isolate overflow-hidden py-20 md:py-28 text-ink"
+      style={{ background: "#faf9f7" }}
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.08) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 95%)",
@@ -34,42 +32,42 @@ export function Dashboard() {
         aria-hidden
         className="pointer-events-none absolute -top-32 -right-24 h-[480px] w-[480px] rounded-full blur-3xl opacity-40 -z-[1]"
         style={{
-          background: "radial-gradient(circle, rgba(243,112,33,0.45), transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,82,28,0.25), transparent 70%)",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-35 -z-[1]"
+        className="pointer-events-none absolute -bottom-32 -left-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-40 -z-[1]"
         style={{
-          background: "radial-gradient(circle, rgba(75,180,220,0.45), transparent 70%)",
+          background: "radial-gradient(circle, rgba(67,69,75,0.25), transparent 70%)",
         }}
       />
 
       <div className="container-page relative grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         {/* Text */}
         <Reveal className="max-w-2xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[12px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#F37021" }} aria-hidden />
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-soft backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#FF521C" }} aria-hidden />
             Centralized dashboard
           </span>
-          <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[60px] leading-[1.04] font-semibold tracking-[-0.028em] text-white">
+          <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[60px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
             You Shouldn&rsquo;t Have to{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 italic" style={{ color: "#F37021" }}>Wonder</span>
+              <span className="relative z-10" style={{ color: "#FF521C" }}>Wonder</span>
               <span
                 aria-hidden
-                className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter/40"
+                className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter/60"
                 style={{ filter: "blur(0.5px)" }}
               />
             </span>
             <span className="block">Where Your Patients Are Coming From.</span>
           </h2>
 
-          <div className="mt-6 space-y-4 text-[16px] md:text-[17px] leading-[1.65] text-white/85">
+          <div className="mt-6 space-y-4 text-[16px] md:text-[17px] leading-[1.65] text-ink-soft">
             <p>
               &ldquo;What&rsquo;s actually working?&rdquo; is the question every
               practice owner asks — and too few marketing agencies can answer
-              it clearly. <span className="font-semibold text-white">We can.</span>
+              it clearly. <span className="font-semibold text-ink">We can.</span>
             </p>
             <p>
               Every practice in the PRACPROS system gets a centralized
@@ -79,9 +77,9 @@ export function Dashboard() {
               monitor front desk response quality, and measure marketing ROI
               with the same precision you apply to clinical outcomes.
             </p>
-            <p className="font-semibold text-white">
+            <p className="font-semibold text-ink">
               Marketing stops being an expense you hope is working.{" "}
-              <span className="text-brand-300">It becomes an operational metric you manage.</span>
+              <span className="text-brand-600">It becomes an operational metric you manage.</span>
             </p>
             <p>
               Your team gets visibility into live conversations. Your front
@@ -97,15 +95,13 @@ export function Dashboard() {
               variant="primary"
               size="md"
               trailingIcon
-              className="!bg-white !text-ink hover:!bg-white"
             >
               See a Live Demo
             </Button>
             <Button
               href="#strategy-call"
-              variant="ghost"
+              variant="secondary"
               size="md"
-              className="!bg-white/10 !text-white border border-white/25 backdrop-blur-md hover:!bg-white/15"
             >
               Schedule a Walkthrough
             </Button>
@@ -120,21 +116,21 @@ export function Dashboard() {
               className="absolute -inset-6 rounded-[44px] blur-3xl opacity-50"
               style={{
                 background:
-                  "radial-gradient(60% 60% at 50% 50%, rgba(243,112,33,0.35), transparent 70%)",
+                  "radial-gradient(60% 60% at 50% 50%, rgba(255,82,28,0.35), transparent 70%)",
               }}
             />
 
-            <div className="relative overflow-hidden rounded-[20px] border border-white/15 bg-white shadow-[0_50px_100px_-30px_rgba(0,0,0,0.55)]">
+            <div className="relative overflow-hidden rounded-[20px] border border-border bg-white shadow-[0_50px_100px_-30px_rgba(10,10,10,0.25)]">
               {/* Window chrome */}
               <div className="flex items-center justify-between border-b border-border bg-subtle/60 px-4 py-3">
                 <div className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-red-400" />
-                  <span className="h-2 w-2 rounded-full bg-amber-300" />
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  <span className="h-2 w-2 rounded-full bg-brand-400" />
+                  <span className="h-2 w-2 rounded-full bg-brand-300" />
+                  <span className="h-2 w-2 rounded-full bg-brand-400" />
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-ink shadow-card">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Live · PracPros IQ
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse" />
+                  Dr. Lee&rsquo;s practice · Live
                 </span>
                 <span className="font-mono text-[10.5px] text-muted">May · this month</span>
               </div>
@@ -154,7 +150,7 @@ export function Dashboard() {
                       <span className="font-display text-[22px] font-semibold tracking-[-0.02em] text-ink">
                         {k.v}
                       </span>
-                      <span className="text-[10.5px] font-semibold text-emerald-600">{k.d}</span>
+                      <span className="text-[10.5px] font-semibold text-brand-600">{k.d}</span>
                     </div>
                   </div>
                 ))}
@@ -189,13 +185,13 @@ export function Dashboard() {
               {/* Recent activity */}
               <div className="border-t border-border bg-subtle/30 p-4">
                 <div className="text-[11.5px] font-semibold uppercase tracking-[0.12em] text-muted">
-                  Live feed
+                  This morning at the practice
                 </div>
                 <ul className="mt-2 space-y-1.5">
                   {[
-                    { c: "bg-emerald-500", t: "New booking · Whitening", s: "Source: Google Maps", time: "2m" },
-                    { c: "bg-sky-500", t: "Live chat answered · 14s", s: "Source: Instagram ad", time: "8m" },
-                    { c: "bg-violet-500", t: "Call recorded · 4m 12s", s: "Source: GBP", time: "21m" },
+                    { c: "bg-brand-500", t: "Maria booked whitening · Friday 2:30", s: "Found you on Google Maps", time: "2m" },
+                    { c: "bg-brand-500", t: "Theo's chat answered in 14s", s: "Came from your Instagram", time: "8m" },
+                    { c: "bg-brand-500", t: "Call from the Patel family · 4:12", s: "Asked about Invisalign", time: "21m" },
                   ].map((row, i) => (
                     <li key={i} className="flex items-center gap-3 rounded-lg bg-white p-2.5">
                       <span className={`h-2 w-2 shrink-0 rounded-full ${row.c} animate-pulse`} />
@@ -207,6 +203,30 @@ export function Dashboard() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+
+            {/* Humanized dentist quote callout under the dashboard */}
+            <div className="relative mt-6 flex items-start gap-4 rounded-2xl border border-border bg-white p-4 shadow-card sm:p-5">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-card">
+                <Image
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&q=80"
+                  alt="Dr. Lee"
+                  fill
+                  sizes="56px"
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+              <div className="flex-1">
+                <p className="font-display text-[15px] leading-snug text-ink">
+                  &ldquo;On Monday morning I know what Friday produced. No spreadsheet. No agency email.&rdquo;
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="text-[12px] font-semibold text-ink">Dr. Lee</span>
+                  <span aria-hidden className="h-1 w-1 rounded-full bg-muted" />
+                  <span className="text-[12px] text-ink-soft">Brighthill Family Dental</span>
+                </div>
               </div>
             </div>
           </div>

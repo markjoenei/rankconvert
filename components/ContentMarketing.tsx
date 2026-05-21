@@ -3,11 +3,11 @@ import { Button } from "./ui/Button";
 import { Reveal } from "./Reveal";
 
 const platforms = [
-  { label: "Instagram", color: "bg-gradient-to-br from-amber-300 via-rose-400 to-violet-500" },
-  { label: "Facebook", color: "bg-sky-500" },
+  { label: "Instagram", color: "bg-gradient-to-br from-brand-300 via-brand-400 to-brand-500" },
+  { label: "Facebook", color: "bg-brand-500" },
   { label: "TikTok", color: "bg-ink" },
-  { label: "YouTube Shorts", color: "bg-rose-500" },
-  { label: "Google Business Profile", color: "bg-emerald-500" },
+  { label: "YouTube Shorts", color: "bg-brand-500" },
+  { label: "Google Business Profile", color: "bg-brand-500" },
 ];
 
 export function ContentMarketing() {
@@ -19,7 +19,7 @@ export function ContentMarketing() {
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,72,192,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.05) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.05) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
@@ -38,7 +38,7 @@ export function ContentMarketing() {
           <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-[60px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
             Content That Feels Like{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 italic text-brand-600">Your Practice.</span>
+              <span className="relative z-10 text-[#FF521C]">Your Practice.</span>
               <span
                 aria-hidden
                 className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter"
@@ -99,7 +99,7 @@ export function ContentMarketing() {
               className="absolute -inset-4 rounded-[40px] blur-3xl opacity-50"
               style={{
                 background:
-                  "radial-gradient(60% 60% at 50% 50%, rgba(132,112,213,0.35), transparent 70%)",
+                  "radial-gradient(60% 60% at 50% 50%, rgba(67,69,75,0.35), transparent 70%)",
               }}
             />
 
@@ -109,9 +109,9 @@ export function ContentMarketing() {
               style={{ animationDuration: "8s" }}
             >
               <div className="flex items-center gap-2">
-                <span className="h-7 w-7 rounded-full bg-gradient-to-br from-amber-300 via-rose-400 to-violet-500" />
+                <span className="h-7 w-7 rounded-full bg-gradient-to-br from-brand-300 via-brand-400 to-brand-500" />
                 <div className="text-[11.5px] font-semibold text-ink">brighthill_dental</div>
-                <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-rose-50 px-1.5 py-0.5 text-[9.5px] font-bold text-rose-600">
+                <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-brand-50 px-1.5 py-0.5 text-[9.5px] font-bold text-brand-600">
                   <svg width="9" height="9" viewBox="0 0 12 12" aria-hidden>
                     <path d="M6 10.5S1 7.2 1 4.4C1 3 2.1 2 3.4 2c.9 0 1.7.5 2.1 1.2C5.9 2.5 6.7 2 7.6 2 8.9 2 10 3 10 4.4c0 2.8-4 6.1-4 6.1z" fill="currentColor" />
                   </svg>
@@ -128,7 +128,7 @@ export function ContentMarketing() {
                   unoptimized
                 />
                 <span className="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2 py-0.5 text-[9.5px] font-semibold uppercase tracking-wider text-ink backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse" />
                   Real team
                 </span>
               </div>
@@ -171,7 +171,7 @@ export function ContentMarketing() {
                 <div className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full bg-black/55 px-2 py-0.5 text-[9.5px] font-semibold text-white backdrop-blur">
                   ▶ 48s
                 </div>
-                <div className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-rose-500/95 px-1.5 py-0.5 text-[9.5px] font-bold text-white">
+                <div className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-brand-500/95 px-1.5 py-0.5 text-[9.5px] font-bold text-white">
                   12.4k
                 </div>
               </div>
@@ -197,10 +197,10 @@ export function ContentMarketing() {
                 <div className="flex items-center gap-2">
                   <span className="grid h-6 w-6 place-items-center rounded-full bg-white shadow-card">
                     <svg width="14" height="14" viewBox="0 0 18 18" aria-hidden>
-                      <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#4285F4" />
-                      <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#34A853" />
-                      <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#FBBC05" />
-                      <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#EA4335" />
+                      <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#43454B" />
+                      <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#43454B" />
+                      <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#43454B" />
+                      <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#43454B" />
                     </svg>
                   </span>
                   <div className="text-[11px] font-semibold text-ink">Bright Hill Dental</div>

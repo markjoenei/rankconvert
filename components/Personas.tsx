@@ -25,9 +25,9 @@ const reviews: ReviewCard[] = [
   {
     id: "r1",
     source: "Google",
-    sourceColor: "bg-amber-300",
+    sourceColor: "bg-brand-300",
     initials: "EM",
-    avatarBg: "bg-emerald-500",
+    avatarBg: "bg-brand-500",
     name: "Emma M.",
     rating: 5,
     daysAgo: "2d ago",
@@ -37,9 +37,9 @@ const reviews: ReviewCard[] = [
   {
     id: "r2",
     source: "Google",
-    sourceColor: "bg-rose-400",
+    sourceColor: "bg-brand-400",
     initials: "DR",
-    avatarBg: "bg-violet-500",
+    avatarBg: "bg-brand-500",
     name: "Daniel R.",
     rating: 5,
     daysAgo: "5d ago",
@@ -49,9 +49,9 @@ const reviews: ReviewCard[] = [
   {
     id: "r3",
     source: "Google",
-    sourceColor: "bg-violet-400",
+    sourceColor: "bg-brand-400",
     initials: "PV",
-    avatarBg: "bg-sky-500",
+    avatarBg: "bg-brand-500",
     name: "Priya V.",
     rating: 5,
     daysAgo: "1w ago",
@@ -61,9 +61,9 @@ const reviews: ReviewCard[] = [
   {
     id: "r4",
     source: "Google",
-    sourceColor: "bg-emerald-400",
+    sourceColor: "bg-brand-400",
     initials: "JS",
-    avatarBg: "bg-amber-500",
+    avatarBg: "bg-brand-500",
     name: "James S.",
     rating: 5,
     daysAgo: "1w ago",
@@ -73,9 +73,9 @@ const reviews: ReviewCard[] = [
   {
     id: "r5",
     source: "Google",
-    sourceColor: "bg-sky-400",
+    sourceColor: "bg-brand-400",
     initials: "OK",
-    avatarBg: "bg-rose-500",
+    avatarBg: "bg-brand-500",
     name: "Olivia K.",
     rating: 5,
     daysAgo: "12d ago",
@@ -85,9 +85,9 @@ const reviews: ReviewCard[] = [
   {
     id: "r6",
     source: "Google",
-    sourceColor: "bg-pink-400",
+    sourceColor: "bg-brand-400",
     initials: "AT",
-    avatarBg: "bg-teal-500",
+    avatarBg: "bg-brand-500",
     name: "Alex T.",
     rating: 5,
     daysAgo: "3w ago",
@@ -102,28 +102,41 @@ const HERO_PORTRAIT =
 export function Personas() {
   return (
     <section
-      className="relative overflow-hidden py-20 md:py-28"
+      className="relative isolate overflow-hidden py-20 md:py-28 text-ink"
       style={{ background: "#faf9f7" }}
     >
-      {/* Soft brand grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,72,192,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.05) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.08) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
-            "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
+            "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 95%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
+            "radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 95%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 -right-24 h-[480px] w-[480px] rounded-full blur-3xl opacity-40 -z-[1]"
+        style={{
+          background: "radial-gradient(circle, rgba(255,82,28,0.25), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -left-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-40 -z-[1]"
+        style={{
+          background: "radial-gradient(circle, rgba(67,69,75,0.25), transparent 70%)",
         }}
       />
 
       <div className="container-page relative">
         {/* Header */}
         <div className="mx-auto max-w-6xl text-center">
-          <span className="inline-block rounded-md bg-amber-200/80 px-2 py-0.5 font-mono text-[11.5px] font-semibold text-amber-900 underline underline-offset-4">
+          <span className="inline-block rounded-md bg-brand-200/80 px-2 py-0.5 font-mono text-[11.5px] font-semibold text-brand-700 underline underline-offset-4">
             Reputation as a growth channel
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
@@ -131,7 +144,7 @@ export function Personas() {
             <span className="block lg:whitespace-nowrap">
               Than Your Ads. Treat Them{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 italic text-brand-600">That Way.</span>
+                <span className="relative z-10 text-[#FF521C]">That Way.</span>
                 <span
                   aria-hidden
                   className="absolute inset-x-0 bottom-1 h-3 -z-0 bg-accent-butter"
@@ -211,7 +224,7 @@ export function Personas() {
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-wider text-ink shadow-card">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse" />
                   Verified
                 </span>
               </div>
@@ -237,7 +250,7 @@ export function Personas() {
                   </div>
                   <div className="mt-1 text-[12px] text-muted">
                     <span className="font-semibold text-ink">1,247 reviews</span> ·{" "}
-                    <span className="font-semibold text-emerald-600">+38 this week</span>
+                    <span className="font-semibold text-brand-600">+38 this week</span>
                   </div>
                 </div>
               </div>
@@ -250,11 +263,11 @@ export function Personas() {
                 ].map((r) => (
                   <div key={r.label} className="flex items-center gap-2 text-[11px]">
                     <span className="w-3 font-semibold text-ink-soft">{r.label}</span>
-                    <svg width="10" height="10" viewBox="0 0 12 12" aria-hidden className="text-amber-400">
+                    <svg width="10" height="10" viewBox="0 0 12 12" aria-hidden className="text-brand-400">
                       <path d="M6 1l1.5 3 3.5.5L8.5 7l.5 3.5L6 9 3 10.5 3.5 7 1 4.5 4.5 4 6 1z" fill="currentColor" />
                     </svg>
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-ink/10">
-                      <div className="h-full rounded-full bg-amber-400" style={{ width: `${r.pct}%` }} />
+                      <div className="h-full rounded-full bg-brand-400" style={{ width: `${r.pct}%` }} />
                     </div>
                     <span className="w-8 text-right font-semibold text-ink-soft">{r.pct}%</span>
                   </div>
@@ -298,7 +311,7 @@ export function Personas() {
 /* ── Stars ──────────────────────────────────────────────── */
 function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
   return (
-    <span className="inline-flex items-center gap-0.5 text-amber-400">
+    <span className="inline-flex items-center gap-0.5 text-brand-400">
       {[1, 2, 3, 4, 5].map((i) => (
         <svg
           key={i}
@@ -322,10 +335,10 @@ function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
 function GoogleMark() {
   return (
     <svg width="22" height="22" viewBox="0 0 18 18" aria-hidden>
-      <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#4285F4" />
-      <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#34A853" />
-      <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#FBBC05" />
-      <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#EA4335" />
+      <path d="M17.6 9.2c0-.7-.1-1.3-.2-2H9v3.8h4.8c-.2 1.1-.8 2-1.8 2.6v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.6z" fill="#43454B" />
+      <path d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3C2.4 15.9 5.5 18 9 18z" fill="#43454B" />
+      <path d="M3.9 10.7c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V5H.9C.3 6.2 0 7.6 0 9s.3 2.8.9 4l3-2.3z" fill="#43454B" />
+      <path d="M9 3.6c1.3 0 2.5.5 3.5 1.4l2.6-2.6C13.5.9 11.4 0 9 0 5.5 0 2.4 2.1.9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z" fill="#43454B" />
     </svg>
   );
 }
@@ -334,12 +347,12 @@ function GoogleMark() {
 function DecorGrid({ className = "" }: { className?: string }) {
   return (
     <svg width="72" height="72" viewBox="0 0 72 72" className={`hidden md:block ${className}`} aria-hidden>
-      <g stroke="rgba(91,72,192,0.45)" strokeWidth="1.4">
+      <g stroke="rgba(67,69,75,0.45)" strokeWidth="1.4">
         <path d="M6 6h60M6 30h60M6 54h60" />
         <path d="M6 6v60M30 6v60M54 6v60" />
       </g>
-      <circle cx="6" cy="6" r="2.4" fill="rgba(91,72,192,0.65)" />
-      <circle cx="66" cy="66" r="2.4" fill="rgba(91,72,192,0.65)" />
+      <circle cx="6" cy="6" r="2.4" fill="rgba(67,69,75,0.65)" />
+      <circle cx="66" cy="66" r="2.4" fill="rgba(67,69,75,0.65)" />
     </svg>
   );
 }
@@ -365,8 +378,8 @@ function PixelCluster() {
   const colorByShade: Record<number, string> = {
     200: "rgba(200,189,239,0.85)",
     300: "rgba(165,150,227,0.85)",
-    400: "rgba(132,112,213,0.85)",
-    500: "rgba(91,72,192,0.85)",
+    400: "rgba(67,69,75,0.85)",
+    500: "rgba(67,69,75,0.85)",
     600: "rgba(74,55,168,0.9)",
   };
   return (

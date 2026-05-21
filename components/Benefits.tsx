@@ -3,27 +3,22 @@ import { SideElements } from "./BenefitsSideElements";
 
 export function Benefits() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
-      {/* Layered backdrop: brand grid + radial glow */}
+    <section
+      className="relative overflow-hidden py-24 md:py-32"
+      style={{ background: "#faf9f7" }}
+    >
+      {/* Soft brand grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,72,192,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(91,72,192,0.06) 1px, transparent 1px)",
+            "linear-gradient(rgba(67,69,75,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(67,69,75,0.05) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
           WebkitMaskImage:
             "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 95%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[520px] w-[820px] rounded-full blur-3xl opacity-50 -z-[1]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(132,112,213,0.35), transparent 70%)",
         }}
       />
 
@@ -39,7 +34,7 @@ export function Benefits() {
           <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.04] font-semibold tracking-[-0.028em] text-ink">
             Are You Still{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 italic text-brand-600">Guessing</span>
+              <span className="relative z-10 text-[#FF521C]">Guessing</span>
               <span
                 aria-hidden
                 className="absolute inset-x-0 bottom-1 h-3 bg-accent-butter -z-0"
@@ -60,7 +55,7 @@ export function Benefits() {
           {/* Without */}
           <div className="relative rounded-2xl border border-border bg-white/70 p-6 md:p-7 backdrop-blur-sm">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/5 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
               Without PRACPROS
             </span>
             <ul className="mt-5 space-y-3 text-[14.5px] leading-snug text-ink-soft">
@@ -72,7 +67,7 @@ export function Benefits() {
                 "Marketing spend with unclear ROI",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-2.5">
-                  <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-red-100 text-red-500">
+                  <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand-100 text-brand-500">
                     <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden>
                       <path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
                     </svg>
@@ -84,13 +79,13 @@ export function Benefits() {
           </div>
 
           {/* With */}
-          <div className="relative overflow-hidden rounded-2xl border border-brand-200 bg-white p-6 md:p-7 shadow-[0_30px_60px_-30px_rgba(91,72,192,0.45)]">
+          <div className="relative overflow-hidden rounded-2xl border border-brand-200 bg-white p-6 md:p-7 shadow-[0_30px_60px_-30px_rgba(67,69,75,0.45)]">
             <div
               aria-hidden
               className="absolute -right-12 -top-12 h-40 w-40 rounded-full blur-2xl opacity-60"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(132,112,213,0.45), transparent 70%)",
+                  "radial-gradient(circle, rgba(67,69,75,0.45), transparent 70%)",
               }}
             />
             <span className="relative inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-brand-700">
@@ -106,7 +101,7 @@ export function Benefits() {
                 "Every dollar tied to a booked patient",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-2.5">
-                  <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-600">
+                  <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand-100 text-brand-600">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
                       <path d="M2 5.5L4 7.5L8 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -167,7 +162,7 @@ export function Benefits() {
             className="relative overflow-hidden rounded-[28px] p-[1.5px]"
             style={{
               background:
-                "linear-gradient(135deg, #5b48c0 0%, #84b4dc 50%, #5b48c0 100%)",
+                "linear-gradient(135deg, #FF521C 0%, #43454B 50%, #FF521C 100%)",
             }}
           >
             <div className="relative rounded-[26px] bg-white p-10 md:p-14">
@@ -176,7 +171,7 @@ export function Benefits() {
                 className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl opacity-50"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(132,112,213,0.5), transparent 70%)",
+                    "radial-gradient(circle, rgba(67,69,75,0.5), transparent 70%)",
                 }}
               />
               <span
