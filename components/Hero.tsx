@@ -50,7 +50,7 @@ export function Hero() {
           </Link>
 
           <h1
-            className="mx-auto mt-6 max-w-7xl animate-fade-up text-center font-display text-[30px] sm:text-[44px] md:text-[60px] lg:text-[76px] leading-[1.03] tracking-[-0.035em] font-semibold text-ink"
+            className="mx-auto mt-6 max-w-7xl animate-fade-up text-center font-display text-[24px] sm:text-[34px] md:text-[46px] lg:text-[58px] leading-[1.04] tracking-[-0.03em] font-semibold text-ink"
             style={{ animationDelay: "120ms" }}
           >
             <span className="block lg:whitespace-nowrap">Your Competitors Aren&rsquo;t</span>

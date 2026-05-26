@@ -1,47 +1,37 @@
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { LogoCloud } from "@/components/LogoCloud";
-import { Stats } from "@/components/Stats";
-import { Platform } from "@/components/Platform";
-import { Benefits } from "@/components/Benefits";
-import { Solutions } from "@/components/Solutions";
-import { Stories } from "@/components/Stories";
-import { Trust } from "@/components/Trust";
-import { Resources } from "@/components/Resources";
-import { Personas } from "@/components/Personas";
-import { ContentMarketing } from "@/components/ContentMarketing";
-import { Dashboard } from "@/components/Dashboard";
-import { Automation } from "@/components/Automation";
-import { Referral } from "@/components/Referral";
-import { HowItWorks } from "@/components/HowItWorks";
-import { WhyPracpros } from "@/components/WhyPracpros";
-import { FAQ } from "@/components/FAQ";
-import { Footer } from "@/components/Footer";
+import { SemrushPromoBar } from "@/components/semrush/PromoBar";
+import { SemrushNavbar } from "@/components/semrush/Navbar";
+import { SemrushHero } from "@/components/semrush/Hero";
+import { SemrushLogoBar } from "@/components/semrush/LogoBar";
+import { SemrushEdgeBanner } from "@/components/semrush/EdgeBanner";
+import { SemrushScaleBanner } from "@/components/semrush/ScaleBanner";
+import { SemrushSolutions } from "@/components/semrush/Solutions";
+import { SemrushDataStats } from "@/components/semrush/DataStats";
+import { SemrushAIVisibility } from "@/components/semrush/AIVisibility";
+import { SemrushCustomerWin } from "@/components/semrush/CustomerWin";
+import { SemrushNews } from "@/components/semrush/News";
+import { SemrushFAQ } from "@/components/semrush/FAQ";
+import { SemrushGetStarted } from "@/components/semrush/GetStarted";
+import { SemrushFooter } from "@/components/semrush/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main className="flex-1">
-        <Hero />
-        <LogoCloud />
-        <Stats />
-        <Platform />
-        <Benefits />
-        <Solutions />
-        <Stories />
-        <Trust />
-        <Resources />
-        <Personas />
-        <ContentMarketing />
-        <Dashboard />
-        <Automation />
-        <Referral />
-        <HowItWorks />
-        <WhyPracpros />
-        <FAQ />
+    <div className="bg-white min-h-screen">
+      <SemrushPromoBar />
+      <SemrushNavbar />
+      <main>
+        <SemrushHero />
+        <SemrushLogoBar />
+        <SemrushEdgeBanner />
+        <SemrushScaleBanner />
+        <SemrushSolutions />
+        <SemrushDataStats />
+        <SemrushAIVisibility />
+        <SemrushCustomerWin />
+        <SemrushNews />
+        <SemrushFAQ />
+        <SemrushGetStarted />
       </main>
-      <Footer />
-    </>
+      <SemrushFooter />
+    </div>
   );
 }
