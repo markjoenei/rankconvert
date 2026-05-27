@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #faf9f7;
+  --color-foreground: #43454B;
+  --color-muted: #7c7f86;
+  --color-subtle: #f4f3f1;
+  --color-border: rgba(67, 69, 75, 0.12);
+  --color-border-strong: rgba(67, 69, 75, 0.22);
+
+  --color-ink: #43454B;
+  --color-ink-soft: #5a5d65;
+  --color-paper: #faf9f7;
+
+  --color-brand-50: #ffece4;
+  --color-brand-100: #ffd6c4;
+  --color-brand-200: #ffb799;
+  --color-brand-300: #ff916a;
+  --color-brand-400: #ff7142;
+  --color-brand-500: #FF521C;
+  --color-brand-600: #e0461a;
+  --color-brand-700: #b8390f;
+  --color-brand-900: #5f1c05;
+
+  --color-accent-mint: #f4f3f1;
+  --color-accent-blush: #ffece4;
+  --color-accent-butter: #ffd9c4;
+  --color-accent-sky: #ebecee;
+  --color-accent-lavender: #f4f3f1;
+
+  --font-sans: var(--font-sans-geist);
+  --font-display: var(--font-display-geist);
+  --font-mono: var(--font-mono-geist);
+
+  --shadow-card: 0 1px 0 rgba(67, 69, 75, 0.05), 0 8px 24px -12px rgba(67, 69, 75, 0.12);
+  --shadow-card-hover: 0 1px 0 rgba(67, 69, 75, 0.06), 0 20px 48px -20px rgba(67, 69, 75, 0.2);
+  --shadow-pop: 0 24px 60px -24px rgba(255, 82, 28, 0.35);
+
+  --animate-marquee: marquee 38s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+
+::selection {
+  background: rgba(255, 82, 28, 0.22);
+  color: #43454B;
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1600px;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+@utility grid-bg {
+  background-image: linear-gradient(rgba(67, 69, 75, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 69, 75, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@utility grid-bg-soft {
+  background-image: linear-gradient(rgba(67, 69, 75, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 69, 75, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@utility fade-mask-b {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 44px 44px, 44px 44px; }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.92; transform: scale(1) rotate(0deg); }
+  50%      { opacity: 1;    transform: scale(1.018) rotate(0.15deg); }
+}
+
+@keyframes portrait-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(-0.6deg); }
+}
+
+@keyframes wobble-soft {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(2px, -4px) rotate(1deg); }
+  66%      { transform: translate(-2px, 3px) rotate(-1deg); }
+}
+
+@keyframes scene-in {
+  0%   { opacity: 0; transform: translateY(18px) scale(0.97); filter: blur(6px); }
+  60%  { filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes scene-in-left {
+  0%   { opacity: 0; transform: translateX(-24px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scene-in-right {
+  0%   { opacity: 0; transform: translateX(24px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scene-in-up {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.04); }
+}
+
+@keyframes kpi-rise {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bar-fill {
+  0%   { transform: scaleX(0); opacity: 0.4; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes feed-in {
+  0%   { opacity: 0; transform: translateX(-10px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes chip-pop {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes sync-shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes hero-underline {
+  0%   { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Chat-cycle animations — each step appears then loops on a 7s cycle */
+@keyframes chat-step {
+  0%, 8%   { opacity: 0; transform: translateY(8px); }
+  16%, 88% { opacity: 1; transform: translateY(0); }
+  96%, 100%{ opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes chat-typing {
+  0%, 8%    { opacity: 0; }
+  16%, 42%  { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-3px); opacity: 1; }
+}
+
+.animate-float-soft     { animation: float-soft 6s ease-in-out infinite; }
+.animate-fade-up        { animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-grid-drift     { animation: grid-drift 14s linear infinite; }
+.animate-grid-pulse     { animation: grid-pulse 6s ease-in-out infinite; }
+.animate-portrait-bob   { animation: portrait-bob 7s ease-in-out infinite; }
+.animate-wobble-soft    { animation: wobble-soft 9s ease-in-out infinite; }
+.animate-scene-in       { animation: scene-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-scene-in-left  { animation: scene-in-left 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-scene-in-right { animation: scene-in-right 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-scene-in-up    { animation: scene-in-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-glow-pulse     { animation: glow-pulse 5s ease-in-out infinite; }
+.animate-kpi-rise       { animation: kpi-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-bar-fill       { animation: bar-fill 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-feed-in        { animation: feed-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-chip-pop       { animation: chip-pop 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-sync-shimmer   {
+  background-size: 200% 100%;
+  animation: sync-shimmer 3.5s linear infinite;
+}
+.animate-hero-underline { animation: hero-underline 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s both; }
+.animate-chat-step      { animation: chat-step 7s ease-in-out infinite; opacity: 0; }
+.animate-chat-typing    { animation: chat-typing 7s ease-in-out infinite; opacity: 0; }
+.animate-typing-dot     { animation: typing-dot 1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-soft,
+  .animate-marquee,
+  .animate-fade-up,
+  .animate-grid-drift,
+  .animate-grid-pulse,
+  .animate-portrait-bob,
+  .animate-wobble-soft,
+  .animate-scene-in,
+  .animate-scene-in-left,
+  .animate-scene-in-right,
+  .animate-scene-in-up,
+  .animate-glow-pulse,
+  .animate-kpi-rise,
+  .animate-bar-fill,
+  .animate-feed-in,
+  .animate-chip-pop,
+  .animate-sync-shimmer,
+  .animate-hero-underline,
+  .animate-chat-step,
+  .animate-chat-typing,
+  .animate-typing-dot {
+    animation: none !important;
+  }
+  html { scroll-behavior: auto; }
+}

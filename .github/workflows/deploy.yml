@@ -1,0 +1,39 @@
+name: Deploy Next App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Upload files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          source: "."
+          target: "/var/www/${{ github.event.repository.name }}"
+          strip_components: 0
+          rm: false
+          overwrite: true
+          exclude: ".git,node_modules,.github,.next,*.log"
+
+      - name: Run Deploy Script
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          script_stop: true
+          command_timeout: 10m
+          script: |
+            /usr/local/bin/deploy-next.sh /var/www/${{ github.event.repository.name }}

@@ -1,0 +1,7 @@
+{
+  "appName": "Pracprosv3",
+  "domain": "prod.pracpros.com",
+  "path": "/Pracprosv3",
+  "pathBase": true,
+  "port": 3030
+}
