@@ -19,7 +19,6 @@ cd "$APP_DIR"
 APP_NAME=$(node -p "require('./deploy.config.json').appName")
 PORT=$(node -p "require('./deploy.config.json').port || 3000")
 
-export NODE_ENV=production
 export DEPLOY_ENV=production
 export PORT
 export HOSTNAME=127.0.0.1
@@ -29,6 +28,9 @@ npm ci --no-audit --no-fund
 
 echo ">> [$APP_NAME] building"
 npm run build
+
+# Runtime env (set after install so devDeps aren't skipped)
+export NODE_ENV=production
 
 # Next's standalone output ships server.js but not public/ or .next/static
 echo ">> [$APP_NAME] bundling static assets into standalone"
