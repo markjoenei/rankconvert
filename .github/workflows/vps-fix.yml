@@ -31,25 +31,17 @@ jobs:
               sudo -n chmod +x /usr/local/bin/deploy-next.sh
             fi
 
-            echo "== removing any conflicting pm2 process on port 3030 =="
-            CONFLICTS=$(pm2 jlist | node -e '
-              const apps = JSON.parse(require("fs").readFileSync(0, "utf8"));
-              const names = apps
-                .filter(a => a.name !== "Pracprosv3")
-                .filter(a => {
-                  const env = (a.pm2_env && a.pm2_env.env) || {};
-                  return String(env.PORT) === "3030";
-                })
-                .map(a => a.name);
-              process.stdout.write(names.join(" "));
-            ')
-            for name in $CONFLICTS; do
-              echo ">> deleting $name"
-              pm2 delete "$name"
-            done
+            echo "== deleting known conflicting pm2 process: pracprosv2 =="
+            pm2 delete pracprosv2 || true
+
+            echo "== deleting errored Pracprosv3 entry so it starts fresh =="
+            pm2 delete Pracprosv3 || true
 
             echo "== re-running deploy script =="
             /usr/local/bin/deploy-next.sh "$APP_DIR"
 
             echo "== final pm2 state =="
             pm2 list
+
+            echo "== local health check =="
+            curl -sI http://127.0.0.1:3030/Pracprosv3/ | head -5 || true

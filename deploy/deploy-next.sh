@@ -40,7 +40,8 @@ cp -r .next/static .next/standalone/.next/
 SERVER_JS="$APP_DIR/.next/standalone/server.js"
 
 echo ">> [$APP_NAME] checking pm2 for other processes on port $PORT"
-CONFLICTS=$(APP_NAME="$APP_NAME" PORT="$PORT" pm2 jlist | node -e '
+FIND_CONFLICTS_JS="$(mktemp)"
+cat > "$FIND_CONFLICTS_JS" << 'JSEOF'
 const apps = JSON.parse(require("fs").readFileSync(0, "utf8"));
 const port = String(process.env.PORT);
 const me = process.env.APP_NAME;
@@ -52,7 +53,9 @@ const names = apps
   })
   .map(a => a.name);
 process.stdout.write(names.join(" "));
-')
+JSEOF
+CONFLICTS=$(APP_NAME="$APP_NAME" PORT="$PORT" pm2 jlist | node "$FIND_CONFLICTS_JS")
+rm -f "$FIND_CONFLICTS_JS"
 if [ -n "$CONFLICTS" ]; then
   for name in $CONFLICTS; do
     echo ">> deleting conflicting pm2 process on port $PORT: $name"
