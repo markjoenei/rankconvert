@@ -39,6 +39,27 @@ cp -r .next/static .next/standalone/.next/
 
 SERVER_JS="$APP_DIR/.next/standalone/server.js"
 
+echo ">> [$APP_NAME] checking pm2 for other processes on port $PORT"
+CONFLICTS=$(APP_NAME="$APP_NAME" PORT="$PORT" pm2 jlist | node -e '
+const apps = JSON.parse(require("fs").readFileSync(0, "utf8"));
+const port = String(process.env.PORT);
+const me = process.env.APP_NAME;
+const names = apps
+  .filter(a => a.name !== me)
+  .filter(a => {
+    const env = (a.pm2_env && a.pm2_env.env) || {};
+    return String(env.PORT) === port;
+  })
+  .map(a => a.name);
+process.stdout.write(names.join(" "));
+')
+if [ -n "$CONFLICTS" ]; then
+  for name in $CONFLICTS; do
+    echo ">> deleting conflicting pm2 process on port $PORT: $name"
+    pm2 delete "$name"
+  done
+fi
+
 echo ">> [$APP_NAME] reloading pm2 on port $PORT"
 if pm2 describe "$APP_NAME" >/dev/null 2>&1; then
   pm2 reload "$APP_NAME" --update-env
