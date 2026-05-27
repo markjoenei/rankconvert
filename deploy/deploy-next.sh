@@ -24,7 +24,7 @@ export PORT
 export HOSTNAME=127.0.0.1
 
 echo ">> [$APP_NAME] installing deps"
-npm ci --no-audit --no-fund
+npm ci --include=dev --no-audit --no-fund
 
 echo ">> [$APP_NAME] building"
 npm run build
