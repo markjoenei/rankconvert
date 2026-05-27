@@ -134,17 +134,11 @@ export function SemrushFooter() {
       </div>
 
       {/* Giant wordmark */}
-      <div
-        className="relative w-full overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #ffe3d4 0%, #ffd4bc 35%, #ffc8a8 65%, #f9d8a8 100%)",
-        }}
-      >
+      <div className="relative w-full overflow-hidden bg-[#FF521C]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 lg:pt-16">
           <h2
             aria-hidden
-            className="text-[#0f0f1a] font-black leading-[0.9] tracking-[-0.05em] text-center"
+            className="text-white font-black leading-[0.9] tracking-[-0.05em] text-center"
             style={{ fontSize: "clamp(72px, 19vw, 280px)" }}
           >
             PRACPROS
