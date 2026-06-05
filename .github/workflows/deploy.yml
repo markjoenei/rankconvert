@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   deploy:
@@ -14,18 +13,45 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Upload files to VPS
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js
+        run: npm run build
+
+      - name: Prepare standalone bundle
+        run: |
+          # Verify standalone build exists
+          if [ ! -d ".next/standalone" ]; then
+            echo "❌ Standalone build missing. Add output:'standalone' to next.config.js"
+            exit 1
+          fi
+
+          # Next.js standalone needs public/ and .next/static/ copied in manually
+          cp -r public .next/standalone/ 2>/dev/null || true
+          mkdir -p .next/standalone/.next
+          cp -r .next/static .next/standalone/.next/
+
+          # Include deploy config so the VPS script knows what to do
+          cp deploy.config.json .next/standalone/
+
+      - name: Upload build to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
-          source: "."
+          source: ".next/standalone/"
           target: "/var/www/${{ github.event.repository.name }}"
-          strip_components: 0
-          rm: false
+          strip_components: 2
+          rm: true
           overwrite: true
-          exclude: ".git,node_modules,.github,.next,*.log"
 
       - name: Run Deploy Script
         uses: appleboy/ssh-action@v1.2.0
@@ -34,6 +60,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script_stop: true
-          command_timeout: 10m
+          command_timeout: 5m
           script: |
-            /usr/local/bin/deploy-next.sh /var/www/${{ github.event.repository.name }}
+            /usr/local/bin/deploy-next-v2.sh ${{ github.event.repository.name }} 
