@@ -1,148 +1,450 @@
-const SOURCES: { name: string; value: number; color: "teal" | "purple" }[] = [
-  { name: "Google Search", value: 8.2, color: "teal" },
-  { name: "Google Maps", value: 7.4, color: "purple" },
-  { name: "ChatGPT", value: 4.1, color: "teal" },
-  { name: "AI Overviews", value: 3.6, color: "purple" },
-  { name: "Perplexity", value: 2.8, color: "teal" },
-  { name: "Instagram", value: 2.4, color: "purple" },
-  { name: "TikTok", value: 2.0, color: "teal" },
-  { name: "Yelp", value: 1.6, color: "teal" },
-  { name: "Reddit", value: 1.2, color: "purple" },
-  { name: "Referrals", value: 1.0, color: "teal" },
+import Image from "next/image";
+
+type Win = {
+  no: string;
+  clientName: string;
+  clientMeta: string;
+  clientInitial: string;
+  primaryColor: string;
+  tags: { label: string; color: string }[];
+  hero: { value: string; label: string };
+  title: string;
+  desc: string;
+  stats: { value: string; label: string }[];
+  images: string[];
+  imageLayout: "single" | "trio";
+  imageAlt: string;
+};
+
+const WINS: Win[] = [
+  {
+    no: "01",
+    clientName: "Eucy",
+    clientMeta: "@shannenmichaela · Shopify store",
+    clientInitial: "E",
+    primaryColor: "#a78bfa",
+    tags: [
+      { label: "Shopify", color: "#a78bfa" },
+      { label: "CRO", color: "#f97316" },
+    ],
+    hero: { value: "2.5×", label: "Sales in month one" },
+    title: "4.63% Conversion Rate & 2.5× Increase in Sales",
+    desc: "We optimised Instagram influencer @shannenmichaela's Shopify store, achieving a 2.5× increase in sales in the first month. We also implemented bundles and subscriptions, generating 20+ active subscribers month one.",
+    stats: [
+      { value: "2.5×", label: "Sales lift" },
+      { value: "4.63%", label: "Conversion" },
+      { value: "20+", label: "Subscribers" },
+    ],
+    images: [
+      "https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/eucy-shopify-store-development.webp?fit=800%2C558&ssl=1",
+    ],
+    imageLayout: "single",
+    imageAlt: "Eucy Shopify store development",
+  },
+  {
+    no: "02",
+    clientName: "YoungConstruct",
+    clientMeta: "50+ page site · Construction · Melbourne",
+    clientInitial: "Y",
+    primaryColor: "#60a5fa",
+    tags: [
+      { label: "Website Design", color: "#60a5fa" },
+      { label: "SEO", color: "#f5c842" },
+    ],
+    hero: { value: "345%", label: "Traffic growth" },
+    title: "345% Traffic Growth & 5%+ Conversion Rate",
+    desc: "We built a 50+ page SEO and CRO optimised website for YoungConstruct to drive organic traffic and convert visitors into enquiries.",
+    stats: [
+      { value: "345%", label: "More leads" },
+      { value: "5%+", label: "Conversion" },
+      { value: "ROI+", label: "First months" },
+    ],
+    images: [
+      "https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/youngconstruct-website-design-update.png?fit=800%2C488&ssl=1",
+    ],
+    imageLayout: "single",
+    imageAlt: "YoungConstruct website design",
+  },
+  {
+    no: "03",
+    clientName: "Prestige Global Events",
+    clientMeta: "Events · Melbourne · Organic social",
+    clientInitial: "P",
+    primaryColor: "#f472b6",
+    tags: [{ label: "Social Media", color: "#f472b6" }],
+    hero: { value: "1.6M", label: "Views · single post" },
+    title: "1.6M Views & 1,000+ Organic Followers in 3 Months",
+    desc: "We've driven strong organic growth for Prestige, with videos reaching up to 1.6M views on a single post, hundreds of thousands more across multiple posts, and thousands of likes, comments and shares — plus 1,000+ new followers in 3 months.",
+    stats: [
+      { value: "1.6M", label: "Peak views" },
+      { value: "100K+", label: "Per post" },
+      { value: "1,000+", label: "Followers · 3mo" },
+    ],
+    images: [
+      "https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/prestige-global-events-social-media-success.png?fit=277%2C433&ssl=1",
+      "https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/prestige-global-events-social-media-win-1.png?fit=270%2C368&ssl=1",
+      "https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/social-media-marketing-success.png?fit=274%2C432&ssl=1",
+    ],
+    imageLayout: "trio",
+    imageAlt: "Prestige Global Events social media wins",
+  },
 ];
 
-const MAX = 10;
+const AGGREGATE = [
+  { value: "8.9M+", label: "Views generated" },
+  { value: "5,000+", label: "Extra leads" },
+  { value: "$1M+", label: "Client revenue" },
+  { value: "100%", label: "Retention" },
+];
 
 export function SemrushAIVisibility() {
   return (
-    <section className="relative bg-[#0c0c0e] py-16 sm:py-24 overflow-hidden">
-      <div className="absolute left-0 top-0 bottom-0 w-[10%] sm:w-[14%] pointer-events-none">
-        <BarColumn color="purple" vertical />
-      </div>
-      <div className="absolute right-0 top-0 bottom-0 w-[10%] sm:w-[14%] pointer-events-none">
-        <BarColumn color="purple" vertical />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 h-[100px] sm:h-[140px] pointer-events-none">
-        <BarColumn color="teal" />
-      </div>
+    <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden" style={{ background: "linear-gradient(180deg, #12141c 0%, #0a0b10 55%, #0c0e15 100%)" }}>
+      {/* Ambient background: soft grid + top glow */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+          backgroundSize: "34px 34px",
+          maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%)",
+        }}
+      />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center top, rgba(245,200,66,0.10) 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="relative max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="text-center max-w-[720px] mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/8 border border-white/15 mb-6">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-              <path d="M11 1l1.8 6.5L19 9l-6.2 1.6L11 17l-1.8-6.4L3 9l6.2-1.5L11 1z" fill="white" />
-              <circle cx="17" cy="3.5" r="1.2" fill="white" />
-              <circle cx="3.5" cy="14.5" r="0.9" fill="white" />
-            </svg>
-          </div>
-          <h2
-            className="text-[28px] sm:text-[48px] lg:text-[68px] font-black leading-[1.02] tracking-[-1.4px] mb-5 [text-wrap:balance]"
+      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center max-w-[780px] mx-auto mb-12 sm:mb-16">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5"
             style={{
-              background:
-                "linear-gradient(90deg, #ffffff 0%, #ffffff 40%, #fff7c2 65%, #ffd0a0 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              background: "rgba(245,200,66,0.08)",
+              border: "1px solid rgba(245,200,66,0.22)",
             }}
           >
-            <span className="block">Patients are searching</span>
-            <span className="block">in five different places.</span>
-          </h2>
-          <p className="text-[14px] sm:text-[16px] text-white/70 leading-[1.55] max-w-[520px] mx-auto mb-7">
-            From Google Maps to ChatGPT, the moment a patient looks for a dentist — we make sure your practice is the answer.
-          </p>
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 px-6 h-[44px] bg-[#ff521c] text-white text-[13px] font-semibold rounded-full hover:bg-[#e0461a] transition-colors"
-          >
-            Audit my visibility
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
-              <path d="M4 3h5v5M9 3L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
-        </div>
-
-        {/* Chart card */}
-        <div className="bg-white rounded-2xl p-5 sm:p-7 lg:p-9 shadow-[0_30px_80px_rgba(0,0,0,0.4)]">
-          <div className="flex items-center justify-between mb-5 pb-3 border-b border-gray-100">
-            <div className="text-[12px] font-bold text-[#0f0f1a]">Discovery channel</div>
-            <div className="text-[12px] font-bold text-[#0f0f1a]">% Share of new patients</div>
-            <div className="text-[10px] text-gray-400 hidden sm:block">Last 90 days · benchmark</div>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#f5c842] animate-pulse" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-white/85">
+              Real client results
+            </span>
           </div>
+          <h2 className="text-[26px] sm:text-[38px] lg:text-[50px] font-black text-white leading-[1.06] tracking-[-1px] mb-5">
+            Some of Our{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #f5c842 0%, #e6b830 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Client Wins
+            </span>
+          </h2>
+          <p className="text-[14px] sm:text-[17px] leading-[1.6] max-w-[560px] mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
+            Some of the many wins we have achieved for our clients across our various disciplines.
+          </p>
 
-          <ul className="space-y-3 sm:space-y-4">
-            {SOURCES.map((b) => (
-              <li
-                key={b.name}
-                className="grid grid-cols-[110px_40px_1fr] sm:grid-cols-[150px_50px_1fr] items-center gap-3"
-              >
-                <span className="text-[12px] sm:text-[13px] text-[#0f0f1a] font-medium truncate">
-                  {b.name}
-                </span>
-                <span className="text-[12px] sm:text-[13px] text-[#0f0f1a] tabular-nums">
-                  {b.value}
-                </span>
-                <div
-                  className="h-[6px] sm:h-[8px] rounded-full"
-                  style={{
-                    width: `${(b.value / MAX) * 100}%`,
-                    background:
-                      b.color === "teal"
-                        ? "linear-gradient(90deg, #1bd7a1, #5fe2c8)"
-                        : "linear-gradient(90deg, #a78bfa, #c4b5fd)",
-                  }}
-                />
-              </li>
+          {/* Aggregate stats bar */}
+          <div className="mt-10 pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+            {AGGREGATE.map(a => (
+              <div key={a.label} className="text-center">
+                <div className="text-[22px] sm:text-[28px] font-black tracking-tight" style={{ color: "#f5c842" }}>
+                  {a.value}
+                </div>
+                <div className="text-[11px] sm:text-[12px] text-white/50 mt-1">{a.label}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
+
+        {/* Cards */}
+        <div className="flex flex-col gap-6 sm:gap-8">
+          {WINS.map((w, i) => (
+            <WinCard key={w.no} win={w} reverse={i % 2 === 1} />
+          ))}
+        </div>
+
+        {/* + Many More */}
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="inline-flex items-center gap-4">
+            <span className="h-px w-12 bg-white/15" />
+            <span
+              className="inline-flex items-center gap-2 text-[12px] font-bold tracking-widest uppercase px-4 py-2 rounded-full"
+              style={{
+                color: "#f5c842",
+                background: "rgba(245,200,66,0.08)",
+                border: "1px solid rgba(245,200,66,0.25)",
+              }}
+            >
+              + Many More Wins!
+            </span>
+            <span className="h-px w-12 bg-white/15" />
+          </div>
+        </div>
+
       </div>
     </section>
   );
 }
 
-function BarColumn({ color, vertical }: { color: "teal" | "purple"; vertical?: boolean }) {
-  const count = vertical ? 20 : 100;
-  if (vertical) {
-    return (
-      <svg className="w-full h-full" viewBox="0 0 60 800" preserveAspectRatio="none" aria-hidden>
-        {Array.from({ length: count }).map((_, i) => {
-          const y = (i / count) * 800;
-          const fill = color === "teal" ? "#1bd7a1" : "#7c5cff";
-          return (
-            <line
-              key={i}
-              x1="0"
-              y1={y}
-              x2="60"
-              y2={y}
-              stroke={fill}
-              strokeWidth="1.4"
-              opacity={0.25 + ((i * 13) % 7) * 0.04}
-            />
-          );
-        })}
-      </svg>
-    );
-  }
+function WinCard({ win, reverse }: { win: Win; reverse: boolean }) {
   return (
-    <svg className="w-full h-full" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden>
-      {Array.from({ length: count }).map((_, i) => {
-        const x = (i / count) * 1200;
-        const fill = i % 2 === 0 ? "#1bd7a1" : "#7c5cff";
+    <article
+      className="relative rounded-3xl overflow-hidden group"
+      style={{
+        background:
+          "linear-gradient(180deg, #0f1017 0%, #0c0d14 100%)",
+        border: "1px solid rgba(255,255,255,0.07)",
+      }}
+    >
+      {/* Category glow */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: reverse ? "auto" : "-40%",
+          bottom: reverse ? "-40%" : "auto",
+          right: reverse ? "auto" : "-20%",
+          left: reverse ? "-20%" : "auto",
+          width: "60%",
+          height: "80%",
+          background: `radial-gradient(ellipse at center, ${win.primaryColor}18 0%, transparent 65%)`,
+        }}
+      />
+
+      {/* Case study number watermark */}
+      <div
+        className="absolute pointer-events-none select-none font-black leading-none tracking-tight"
+        style={{
+          top: 24,
+          right: 32,
+          fontSize: "clamp(80px, 14vw, 180px)",
+          color: "rgba(255,255,255,0.03)",
+          letterSpacing: "-6px",
+        }}
+      >
+        {win.no}
+      </div>
+
+      <div className="relative grid lg:grid-cols-2 gap-6 sm:gap-10 p-5 sm:p-8 lg:p-10 items-center">
+
+        {/* Image */}
+        <div className={reverse ? "lg:order-2" : ""}>
+          {win.imageLayout === "single" ? (
+            <SingleImage win={win} />
+          ) : (
+            <TrioImage win={win} />
+          )}
+        </div>
+
+        {/* Content */}
+        <div className={reverse ? "lg:order-1" : ""}>
+          {/* Tags */}
+          <div className="flex flex-wrap items-center gap-2 mb-5">
+            {win.tags.map(t => (
+              <span
+                key={t.label}
+                className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                style={{
+                  color: t.color,
+                  background: `${t.color}18`,
+                  border: `1px solid ${t.color}35`,
+                }}
+              >
+                {t.label}
+              </span>
+            ))}
+            <span className="text-[10px] font-bold text-white/30 tracking-widest ml-1">
+              CASE STUDY {win.no}
+            </span>
+          </div>
+
+          {/* Hero stat */}
+          <div className="flex items-baseline gap-3 mb-5">
+            <span
+              className="font-black leading-none tracking-[-3px]"
+              style={{
+                fontSize: "clamp(48px, 6vw, 78px)",
+                color: win.primaryColor,
+              }}
+            >
+              {win.hero.value}
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-semibold text-white/70 uppercase tracking-widest">
+              {win.hero.label}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-[18px] sm:text-[22px] lg:text-[24px] font-black text-white leading-[1.2] tracking-[-0.5px] mb-3">
+            {win.title}
+          </h3>
+          <p className="text-[13px] sm:text-[14px] leading-[1.65] mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>
+            {win.desc}
+          </p>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
+            {win.stats.map((s, i) => (
+              <div
+                key={i}
+                className="rounded-xl p-3 text-center"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                }}
+              >
+                <div className="text-[16px] sm:text-[20px] font-black text-white leading-none">
+                  {s.value}
+                </div>
+                <div className="text-[9px] sm:text-[10px] text-white/45 mt-1.5 tracking-wide uppercase">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Client identity chip */}
+          <div className="flex items-center gap-3 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center font-black text-[15px] shrink-0"
+              style={{
+                background: win.primaryColor,
+                color: "#09090e",
+              }}
+            >
+              {win.clientInitial}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[13px] font-bold text-white truncate">{win.clientName}</div>
+              <div className="text-[11px] text-white/45 truncate">{win.clientMeta}</div>
+            </div>
+            <div className="flex items-center gap-0.5 shrink-0">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <svg key={i} width="11" height="11" viewBox="0 0 12 12" fill="#f5c842" aria-hidden>
+                  <path d="M6 0l1.6 4 4.4.4-3.3 2.9 1 4.3L6 9.4l-3.7 2.2 1-4.3L0 4.4 4.4 4 6 0z" />
+                </svg>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  );
+}
+
+/* ---------- Image layouts ---------- */
+
+function SingleImage({ win }: { win: Win }) {
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden shadow-2xl"
+      style={{
+        border: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: `0 40px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px ${win.primaryColor}12`,
+      }}
+    >
+      {/* Browser chrome */}
+      <div className="bg-[#0a0b10] px-3 py-2.5 flex items-center gap-2 border-b border-white/[0.06]">
+        <div className="flex gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+        </div>
+        <div className="flex-1 flex justify-center">
+          <div className="bg-white/[0.06] rounded-md px-3 py-1 text-[10px] text-white/40 max-w-[240px] w-full text-center truncate">
+            {win.clientName.toLowerCase().replace(/\s+/g, "")}.com
+          </div>
+        </div>
+        <div className="w-14" />
+      </div>
+
+      {/* Image */}
+      <div className="relative" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src={win.images[0]}
+          alt={win.imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 540px"
+        />
+
+        {/* Corner ribbon with hero stat */}
+        <div
+          className="absolute top-3 left-3 px-3 py-1.5 rounded-full text-[11px] font-black text-[#09090e] shadow-lg"
+          style={{ background: win.primaryColor }}
+        >
+          {win.hero.value} {win.hero.label.split("·")[0].trim().toLowerCase()}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TrioImage({ win }: { win: Win }) {
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden flex items-center justify-center gap-3 sm:gap-4 py-8 sm:py-10 px-4"
+      style={{
+        background: `radial-gradient(ellipse at center, ${win.primaryColor}15 0%, #0a0b10 70%)`,
+        border: "1px solid rgba(255,255,255,0.08)",
+        minHeight: 340,
+        boxShadow: `0 40px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px ${win.primaryColor}12`,
+      }}
+    >
+      {win.images.map((img, idx) => {
+        const isCenter = idx === 1;
         return (
-          <line
-            key={i}
-            x1={x}
-            y1="160"
-            x2={x}
-            y2={Math.max(0, 60 + ((i * 17) % 70))}
-            stroke={fill}
-            strokeWidth="2"
-            opacity={0.55}
-          />
+          <div
+            key={idx}
+            className="relative rounded-[22px] overflow-hidden shrink-0"
+            style={{
+              width: isCenter ? 140 : 120,
+              aspectRatio: "9/16",
+              background: "#000",
+              border: "3px solid #1a1c25",
+              boxShadow: isCenter
+                ? `0 25px 50px rgba(0,0,0,0.5), 0 0 0 1px ${win.primaryColor}40`
+                : "0 15px 30px rgba(0,0,0,0.35)",
+              transform: `translateY(${isCenter ? -8 : 8}px) rotate(${idx === 0 ? -4 : idx === 2 ? 4 : 0}deg)`,
+              zIndex: isCenter ? 2 : 1,
+            }}
+          >
+            <Image src={img} alt="" fill className="object-cover" sizes="140px" />
+
+            {/* Live badge on center */}
+            {isCenter && (
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 flex items-center gap-1 px-1.5 py-0.5 rounded-full" style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)" }}>
+                <span className="w-1 h-1 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-[8px] font-bold text-white uppercase tracking-widest">Live</span>
+              </div>
+            )}
+
+            {/* Bottom overlay with views */}
+            <div
+              className="absolute bottom-0 left-0 right-0 px-2 py-1.5"
+              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85), transparent)" }}
+            >
+              <div className="flex items-center justify-between text-[9px] text-white font-semibold">
+                <span className="flex items-center gap-1">
+                  <svg width="9" height="9" viewBox="0 0 12 12" fill="currentColor" aria-hidden>
+                    <path d="M6 3C3.5 3 1.4 4.5 0 6c1.4 1.5 3.5 3 6 3s4.6-1.5 6-3c-1.4-1.5-3.5-3-6-3zm0 5a2 2 0 110-4 2 2 0 010 4z" />
+                  </svg>
+                  {isCenter ? "1.6M" : idx === 0 ? "428K" : "312K"}
+                </span>
+                <span>â™¥</span>
+              </div>
+            </div>
+          </div>
         );
       })}
-    </svg>
+    </div>
   );
 }

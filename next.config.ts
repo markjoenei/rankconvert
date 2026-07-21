@@ -29,6 +29,16 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "i0.wp.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "rankconvert.com.au",
+        pathname: "/**",
+      },
     ],
   },
 };

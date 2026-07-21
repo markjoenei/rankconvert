@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SemrushPromoBar } from "@/components/semrush/PromoBar";
+import { SemrushNavbar } from "@/components/semrush/Navbar";
+import { SemrushFooter } from "@/components/semrush/Footer";
+import { Reveal } from "@/components/ui/Reveal";
 
 const geistSans = Geist({
   variable: "--font-sans-geist",
@@ -15,35 +19,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.pracpros.com"),
+  metadataBase: new URL("https://rankconvert.com.au"),
   title: {
-    default: "PracPros — AI-Native Dental Growth Platform",
-    template: "%s · PracPros",
+    default: "RankConvert — Melbourne Digital Marketing Services",
+    template: "%s · RankConvert",
   },
   description:
-    "PRACPROS is a dental marketing agency specializing in AI-native patient acquisition systems, Google Premier Partner advertising, conversion-optimized websites, local SEO, and speed-to-lead automation.",
+    "Digital marketing strategies that ACTUALLY grow your business. SEO, website design, Shopify, CRO, and social media marketing for Australian businesses. 670% average organic traffic growth.",
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/brand/rankconvert-favicon.jpg", type: "image/jpeg", sizes: "any" },
     ],
-    apple: "/icon.svg",
-    shortcut: "/icon.svg",
+    apple: { url: "/brand/rankconvert-favicon.jpg", type: "image/jpeg" },
+    shortcut: "/brand/rankconvert-favicon.jpg",
   },
   openGraph: {
-    title: "PracPros — AI-Native Dental Growth Platform",
+    title: "RankConvert — Melbourne Digital Marketing Services",
     description:
-      "Google Premier Partner. AI-native patient acquisition for dental practices serious about growth.",
+      "Proven strategies that consistently bring 2–5x ROI. SEO, website design, Shopify, CRO, and social media for Australian businesses.",
     type: "website",
-    url: "https://www.pracpros.com",
-    siteName: "PracPros",
-    images: [{ url: "/brand/pracpros-logo-v2.png", width: 1091, height: 229, alt: "PracPros Dental Marketing" }],
+    url: "https://rankconvert.com.au",
+    siteName: "RankConvert",
+    images: [{ url: "/brand/pracpros-logo-v2.png", width: 1091, height: 229, alt: "RankConvert Digital Marketing" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PracPros — AI-Native Dental Growth Platform",
+    title: "RankConvert — Melbourne Digital Marketing Services",
     description:
-      "Google Premier Partner. AI-native patient acquisition for dental practices serious about growth.",
+      "Proven strategies that consistently bring 2–5x ROI. SEO, website design, Shopify, CRO, and social media for Australian businesses.",
     images: ["/brand/pracpros-logo-v2.png"],
   },
 };
@@ -59,7 +62,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <div className="bg-[#09090e] min-h-screen">
+          <SemrushPromoBar />
+          <SemrushNavbar />
+          <main>{children}</main>
+          <Reveal variant="fade" duration={700}>
+            <SemrushFooter />
+          </Reveal>
+        </div>
       </body>
     </html>
   );

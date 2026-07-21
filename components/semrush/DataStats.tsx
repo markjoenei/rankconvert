@@ -1,131 +1,146 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const STATS = [
-  { value: "412%", label: "Organic growth", desc: "Year-one average across managed accounts." },
-  { value: "47s", label: "Response time", desc: "Median across calls, chat, and form fills." },
-  { value: "4.9★", label: "Patient rating", desc: "Average across PRACPROS practices." },
-  { value: "6.4×", label: "ROAS", desc: "Channel-attributed, full-funnel return on ad spend." },
-  { value: "+186/mo", label: "Reactivated", desc: "Dormant patients re-engaged through recare." },
+  {
+    value: "670%",
+    label: "Average Traffic Growth",
+    desc: "Our sites are built SEO-first, driving compounding organic traffic from day one.",
+  },
+  {
+    value: "2–5×",
+    label: "More Leads & Enquiries",
+    desc: "Our SEO brings in high-intent traffic that converts into consistent leads.",
+  },
 ];
 
+const TESTIMONIAL = {
+  quote:
+    "In just 9 months, RankConvert helped us grow Evolved H2O by 5,203%. Their SEO strategy, conversion-focused site improvements, and content built for health conscious audiences positioned our hydrogen water bottles as a premium choice in the wellness market.",
+  author: "Lachy M",
+  role: "Founder, Evolved H2O",
+  initial: "L",
+};
+
 export function SemrushDataStats() {
-  const [active, setActive] = useState(1);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const r = el.getBoundingClientRect();
-      const vh = window.innerHeight || 1;
-      const total = r.height + vh * 0.6;
-      const past = vh * 0.7 - r.top;
-      const ratio = Math.max(0, Math.min(0.99, past / total));
-      const idx = Math.min(STATS.length - 1, Math.floor(ratio * STATS.length));
-      setActive(idx);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <section ref={sectionRef} className="bg-white py-14 sm:py-20 lg:py-24">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative py-14 sm:py-20 lg:py-24 overflow-hidden"
+      style={{ background: "#f6f6f8" }}
+    >
+      {/* Background image — growth/consulting imagery, faded, slow Ken Burns zoom */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div className="relative w-full h-full animate-zoom-burn" style={{ opacity: 0.09 }}>
+          <Image
+            src="https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/seo-consultant-services.webp?fit=1536%2C1024&ssl=1"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Edge fade so image blends into the section background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, #f6f6f8 0%, rgba(246,246,248,0) 18%, rgba(246,246,248,0) 82%, #f6f6f8 100%), linear-gradient(to right, rgba(246,246,248,0.6) 0%, rgba(246,246,248,0) 25%, rgba(246,246,248,0) 75%, rgba(246,246,248,0.6) 100%)",
+          }}
+        />
+      </div>
+
+      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="mb-10 sm:mb-14">
-          <div className="text-[11px] font-bold uppercase tracking-widest text-[#0f0f1a] mb-3">
-            By the numbers
+        <div className="max-w-[720px] mb-10 sm:mb-14">
+          <div className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#c9971a" }}>
+            We&apos;re here to help
           </div>
-          <div className="flex items-start justify-between gap-6">
-            <h2 className="text-[24px] sm:text-[34px] lg:text-[42px] font-black text-[#0f0f1a] leading-[1.06] tracking-[-0.8px] max-w-[560px] [text-wrap:balance]">
-              <span className="block">Outcomes our practices</span>
-              <span className="block">measure every day.</span>
-            </h2>
-            <a
-              href="#"
-              className="hidden sm:inline-flex items-center justify-center px-6 h-[40px] border border-[#0f0f1a]/30 text-[13px] font-semibold text-[#0f0f1a] rounded-full hover:bg-gray-50 transition-colors shrink-0"
-            >
-              Learn more
-            </a>
-          </div>
-          <p className="text-[14px] sm:text-[15px] text-[#5a5a6a] leading-[1.55] mt-5 max-w-[600px]">
-            Not vanity metrics. The numbers that change production, retention, and the quality of every Monday morning.
+          <h2 className="text-[26px] sm:text-[38px] lg:text-[50px] font-black text-[#09090e] leading-[1.06] tracking-[-1px] mb-5">
+            We&apos;re Here to Help You Grow
+          </h2>
+          <p className="text-[14px] sm:text-[16px] leading-[1.6] max-w-[620px]" style={{ color: "rgba(9,9,14,0.55)" }}>
+            With an average 670% traffic increase and 3.9× boost in conversion rates for our clients, we know
+            what it takes to scale ambitious businesses online.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-16">
-          {/* Left numbers */}
-          <ul className="space-y-3 lg:space-y-4">
-            {STATS.map((s, i) => (
-              <StatRow key={s.value} stat={s} active={i === active} />
-            ))}
-          </ul>
+        {/* Stats + testimonial */}
+        <div className="grid lg:grid-cols-[1fr_1.15fr] gap-5 lg:gap-6">
 
-          {/* Right descriptions */}
-          <ul className="space-y-12 sm:space-y-14 lg:space-y-20 lg:pt-20 hidden sm:block">
-            {STATS.map((s, i) => (
-              <li
+          {/* Left: stat cards + CTA */}
+          <div className="flex flex-col gap-4">
+            {STATS.map(s => (
+              <div
                 key={s.value}
-                className={`text-[15px] sm:text-[17px] leading-[1.5] max-w-[320px] transition-colors duration-500 ${
-                  i === active ? "text-[#0f0f1a]" : "text-[#c5c5cb]"
-                }`}
+                className="rounded-2xl p-6 sm:p-7"
+                style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}
               >
-                {s.desc}
-              </li>
+                <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+                  <span
+                    className="font-black tracking-tight leading-none"
+                    style={{ color: "#f5c842", fontSize: "clamp(40px, 5.2vw, 60px)" }}
+                  >
+                    {s.value}
+                  </span>
+                  <span className="text-[13px] sm:text-[15px] font-bold text-[#09090e]">{s.label}</span>
+                </div>
+                <p className="text-[13px] sm:text-[14px] leading-[1.55]" style={{ color: "rgba(9,9,14,0.55)" }}>
+                  {s.desc}
+                </p>
+              </div>
             ))}
-          </ul>
-        </div>
 
-        <div className="mt-8 sm:hidden">
-          <a href="#" className="inline-flex items-center justify-center px-5 h-[40px] border border-[#0f0f1a]/30 text-[13px] font-semibold text-[#0f0f1a] rounded-full">
-            Learn more
-          </a>
+            <a
+              href="#"
+              className="mt-2 inline-flex items-center justify-center px-7 h-[50px] text-[#09090e] text-[14px] font-bold rounded-full hover:bg-[#e6b830] transition-colors self-start"
+              style={{ background: "#f5c842" }}
+            >
+              Scale My Business Today
+            </a>
+          </div>
+
+          {/* Right: testimonial card */}
+          <article
+            className="rounded-2xl p-7 sm:p-9 flex flex-col gap-6"
+            style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}
+          >
+            <div className="flex items-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <svg key={i} width="14" height="14" viewBox="0 0 12 12" fill="#f5c842" aria-hidden>
+                  <path d="M6 0l1.6 4 4.4.4-3.3 2.9 1 4.3L6 9.4l-3.7 2.2 1-4.3L0 4.4 4.4 4 6 0z" />
+                </svg>
+              ))}
+              <span className="text-[11px] font-semibold text-[#09090e]/50 ml-2">Google Verified</span>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <svg width="24" height="20" viewBox="0 0 22 18" fill="none" aria-hidden className="shrink-0 text-[#09090e]/25 mt-1">
+                <path
+                  d="M0 18V11C0 5 3 1 9 0v4c-3 1-4 3-4 6h4v8H0zm12 0V11c0-6 3-10 9-11v4c-3 1-4 3-4 6h4v8h-9z"
+                  fill="currentColor"
+                />
+              </svg>
+              <p className="text-[15px] sm:text-[17px] leading-[1.6] font-medium text-[#09090e]">
+                {TESTIMONIAL.quote}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 mt-auto pt-4" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+              <div
+                className="w-11 h-11 rounded-full flex items-center justify-center text-[#09090e] font-black text-[16px] shrink-0"
+                style={{ background: "#f5c842" }}
+              >
+                {TESTIMONIAL.initial}
+              </div>
+              <div>
+                <div className="text-[14px] font-bold text-[#09090e]">{TESTIMONIAL.author}</div>
+                <div className="text-[12px] text-[#09090e]/50">{TESTIMONIAL.role}</div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
-  );
-}
-
-function StatRow({ stat, active }: { stat: { value: string; label: string }; active: boolean }) {
-  if (active) {
-    return (
-      <li className="flex items-stretch h-[88px] sm:h-[120px] lg:h-[140px] transition-all duration-500">
-        <div
-          className="w-[80px] sm:w-[110px] lg:w-[130px] flex items-center justify-center"
-          style={{
-            background:
-              "linear-gradient(90deg, #ffb89c 0%, #ff8a5c 60%, #ff521c 100%)",
-          }}
-        >
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden className="sm:w-[48px] sm:h-[48px]">
-            <path d="M18 30V6M8 16l10-10 10 10" stroke="#0f0f1a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <div className="flex-1 bg-[#0f0f1a] flex items-center px-6 sm:px-8 lg:px-10 relative">
-          <span className="text-white font-black tracking-[-2.5px] leading-none text-[44px] sm:text-[72px] lg:text-[92px]">
-            {stat.value}
-          </span>
-          <span className="absolute right-6 sm:right-8 lg:right-10 bottom-3 sm:bottom-4 lg:bottom-5 text-white/80 text-[11px] sm:text-[13px] font-medium">
-            {stat.label}
-          </span>
-        </div>
-      </li>
-    );
-  }
-
-  return (
-    <li className="flex items-center gap-4 h-[60px] sm:h-[80px] lg:h-[96px] transition-all duration-500">
-      <span className="shrink-0 inline-flex items-center justify-center w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] lg:w-[96px] lg:h-[96px] bg-[#f4f4f6]">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden className="sm:w-[28px] sm:h-[28px] lg:w-[32px] lg:h-[32px]">
-          <path d="M12 20V4M5 11l7-7 7 7" stroke="#c5c5cb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </span>
-      <span className="font-black tracking-[-2px] leading-none text-[#e5e5ea] text-[36px] sm:text-[56px] lg:text-[72px]">
-        {stat.value}
-      </span>
-    </li>
   );
 }

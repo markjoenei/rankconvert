@@ -1,31 +1,33 @@
-const FEATURES = [
-  "Google Premier Partner",
-  "AI-Optimized Sites",
-  "Sub-60s Response",
-  "SEO · AEO · GEO",
-  "Real-Time ROI",
-  "Trusted North America",
+﻿const FEATURES = [
+  "Search Engine Optimisation",
+  "Website Design",
+  "Shopify Stores",
+  "Conversion Rate Optimisation",
+  "Social Media Marketing",
+  "Melbourne Based",
+  "Australian Owned",
+  "Month to Month",
 ];
 
 export function SemrushLogoBar() {
-  // Duplicate so the marquee can loop seamlessly (translate -50%)
   const loop = [...FEATURES, ...FEATURES];
 
   return (
-    <section className="bg-white py-10 sm:py-14 border-b border-gray-100 overflow-hidden">
+    <section
+      className="py-8 sm:py-10 border-y border-white/[0.06] overflow-hidden"
+      style={{ background: "linear-gradient(90deg, #0d0f16 0%, #131521 50%, #0d0f16 100%)" }}
+    >
       <div
         className="flex w-max gap-10 sm:gap-14 marquee-track"
-        style={{
-          animation: "marquee 30s linear infinite",
-        }}
+        style={{ animation: "marquee 36s linear infinite" }}
       >
         {loop.map((f, i) => (
           <span
             key={`${f}-${i}`}
-            className="shrink-0 inline-flex items-center gap-10 sm:gap-14 text-[20px] sm:text-[26px] lg:text-[32px] font-extrabold tracking-tight text-[#0f0f1a]"
+            className="shrink-0 inline-flex items-center gap-10 sm:gap-14 text-[18px] sm:text-[22px] lg:text-[26px] font-bold tracking-tight text-white/70"
           >
             {f}
-            <span className="w-2 h-2 rounded-full bg-[#ff521c]/70 shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#f5c842]/60 shrink-0" />
           </span>
         ))}
       </div>
