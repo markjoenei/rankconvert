@@ -151,23 +151,38 @@ export function SemrushAIVisibility() {
             Some of the many wins we have achieved for our clients across our various disciplines.
           </p>
 
-          {/* Aggregate stats bar */}
-          <div className="mt-10 pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-            {AGGREGATE.map(a => (
-              <div key={a.label} className="text-center">
-                <div className="text-[22px] sm:text-[28px] font-black tracking-tight" style={{ color: "#f5c842" }}>
-                  {a.value}
+          {/* Aggregate stats bar — 4 columns on all breakpoints, fluid sizing */}
+          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="grid grid-cols-4 gap-1 sm:gap-4 lg:gap-6">
+              {AGGREGATE.map(a => (
+                <div key={a.label} className="text-center min-w-0">
+                  <div
+                    className="font-black tracking-tight leading-none whitespace-nowrap"
+                    style={{ color: "#f5c842", fontSize: "clamp(14px, 4.4vw, 28px)" }}
+                  >
+                    {a.value}
+                  </div>
+                  <div
+                    className="text-white/50 mt-1 leading-tight"
+                    style={{ fontSize: "clamp(9px, 2.4vw, 12px)" }}
+                  >
+                    {a.label}
+                  </div>
                 </div>
-                <div className="text-[11px] sm:text-[12px] text-white/50 mt-1">{a.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Cards */}
-        <div className="flex flex-col gap-6 sm:gap-8">
+        {/* Cards — horizontal carousel on mobile, vertical zigzag on sm+ */}
+        <div className="flex sm:flex-col gap-4 sm:gap-8 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {WINS.map((w, i) => (
-            <WinCard key={w.no} win={w} reverse={i % 2 === 1} />
+            <div
+              key={w.no}
+              className="shrink-0 w-[88%] snap-center sm:w-auto sm:shrink"
+            >
+              <WinCard win={w} reverse={i % 2 === 1} />
+            </div>
           ))}
         </div>
 
@@ -222,17 +237,17 @@ function WinCard({ win, reverse }: { win: Win; reverse: boolean }) {
       <div
         className="absolute pointer-events-none select-none font-black leading-none tracking-tight"
         style={{
-          top: 24,
-          right: 32,
-          fontSize: "clamp(80px, 14vw, 180px)",
-          color: "rgba(255,255,255,0.03)",
-          letterSpacing: "-6px",
+          top: 16,
+          right: 20,
+          fontSize: "clamp(52px, 13vw, 180px)",
+          color: "rgba(255,255,255,0.04)",
+          letterSpacing: "-4px",
         }}
       >
         {win.no}
       </div>
 
-      <div className="relative grid lg:grid-cols-2 gap-6 sm:gap-10 p-5 sm:p-8 lg:p-10 items-center">
+      <div className="relative grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-10 p-4 sm:p-7 lg:p-10 items-center">
 
         {/* Image */}
         <div className={reverse ? "lg:order-2" : ""}>
@@ -246,11 +261,11 @@ function WinCard({ win, reverse }: { win: Win; reverse: boolean }) {
         {/* Content */}
         <div className={reverse ? "lg:order-1" : ""}>
           {/* Tags */}
-          <div className="flex flex-wrap items-center gap-2 mb-5">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5">
             {win.tags.map(t => (
               <span
                 key={t.label}
-                className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full"
                 style={{
                   color: t.color,
                   background: `${t.color}18`,
@@ -260,50 +275,66 @@ function WinCard({ win, reverse }: { win: Win; reverse: boolean }) {
                 {t.label}
               </span>
             ))}
-            <span className="text-[10px] font-bold text-white/30 tracking-widest ml-1">
+            <span className="text-[9px] sm:text-[10px] font-bold text-white/30 tracking-widest ml-0.5 sm:ml-1">
               CASE STUDY {win.no}
             </span>
           </div>
 
           {/* Hero stat */}
-          <div className="flex items-baseline gap-3 mb-5">
+          <div className="flex items-baseline gap-2 sm:gap-3 mb-3 sm:mb-5 flex-wrap">
             <span
-              className="font-black leading-none tracking-[-3px]"
+              className="font-black leading-none tracking-[-1.5px] sm:tracking-[-3px]"
               style={{
-                fontSize: "clamp(48px, 6vw, 78px)",
+                fontSize: "clamp(28px, 8vw, 78px)",
                 color: win.primaryColor,
               }}
             >
               {win.hero.value}
             </span>
-            <span className="text-[12px] sm:text-[13px] font-semibold text-white/70 uppercase tracking-widest">
+            <span
+              className="font-semibold text-white/70 uppercase tracking-widest leading-tight"
+              style={{ fontSize: "clamp(9px, 2.4vw, 13px)" }}
+            >
               {win.hero.label}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-[18px] sm:text-[22px] lg:text-[24px] font-black text-white leading-[1.2] tracking-[-0.5px] mb-3">
+          <h3
+            className="font-black text-white leading-[1.2] tracking-[-0.3px] sm:tracking-[-0.5px] mb-2 sm:mb-3"
+            style={{ fontSize: "clamp(14px, 3.6vw, 24px)" }}
+          >
             {win.title}
           </h3>
-          <p className="text-[13px] sm:text-[14px] leading-[1.65] mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <p
+            className="leading-[1.55] sm:leading-[1.65] mb-4 sm:mb-6"
+            style={{ color: "rgba(255,255,255,0.55)", fontSize: "clamp(11px, 2.8vw, 14px)" }}
+          >
             {win.desc}
           </p>
 
-          {/* Stats grid */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
+          {/* Stats grid — 3 cols always, fluid sizing on mobile */}
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-5 sm:mb-6">
             {win.stats.map((s, i) => (
               <div
                 key={i}
-                className="rounded-xl p-3 text-center"
+                className="rounded-lg sm:rounded-xl text-center min-w-0"
                 style={{
+                  padding: "clamp(6px, 1.8vw, 12px)",
                   background: "rgba(255,255,255,0.03)",
                   border: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
-                <div className="text-[16px] sm:text-[20px] font-black text-white leading-none">
+                <div
+                  className="font-black text-white leading-none whitespace-nowrap"
+                  style={{ fontSize: "clamp(12px, 3.6vw, 18px)" }}
+                >
                   {s.value}
                 </div>
-                <div className="text-[9px] sm:text-[10px] text-white/45 mt-1.5 tracking-wide uppercase">
+                <div
+                  className="text-white/45 mt-1 sm:mt-1.5 tracking-wide uppercase leading-tight"
+                  style={{ fontSize: "clamp(8px, 2vw, 10px)" }}
+                >
                   {s.label}
                 </div>
               </div>
@@ -311,9 +342,9 @@ function WinCard({ win, reverse }: { win: Win; reverse: boolean }) {
           </div>
 
           {/* Client identity chip */}
-          <div className="flex items-center gap-3 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="flex items-center gap-2.5 sm:gap-3 pt-4 sm:pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             <div
-              className="w-10 h-10 rounded-full flex items-center justify-center font-black text-[15px] shrink-0"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-black text-[13px] sm:text-[15px] shrink-0"
               style={{
                 background: win.primaryColor,
                 color: "#09090e",
@@ -322,12 +353,12 @@ function WinCard({ win, reverse }: { win: Win; reverse: boolean }) {
               {win.clientInitial}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[13px] font-bold text-white truncate">{win.clientName}</div>
-              <div className="text-[11px] text-white/45 truncate">{win.clientMeta}</div>
+              <div className="text-[12px] sm:text-[13px] font-bold text-white truncate">{win.clientName}</div>
+              <div className="text-[10px] sm:text-[11px] text-white/45 truncate">{win.clientMeta}</div>
             </div>
             <div className="flex items-center gap-0.5 shrink-0">
               {Array.from({ length: 5 }).map((_, i) => (
-                <svg key={i} width="11" height="11" viewBox="0 0 12 12" fill="#f5c842" aria-hidden>
+                <svg key={i} width="10" height="10" viewBox="0 0 12 12" fill="#f5c842" aria-hidden className="sm:w-[11px] sm:h-[11px]">
                   <path d="M6 0l1.6 4 4.4.4-3.3 2.9 1 4.3L6 9.4l-3.7 2.2 1-4.3L0 4.4 4.4 4 6 0z" />
                 </svg>
               ))}
@@ -352,18 +383,18 @@ function SingleImage({ win }: { win: Win }) {
       }}
     >
       {/* Browser chrome */}
-      <div className="bg-[#0a0b10] px-3 py-2.5 flex items-center gap-2 border-b border-white/[0.06]">
-        <div className="flex gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+      <div className="bg-[#0a0b10] px-2.5 sm:px-3 py-2 sm:py-2.5 flex items-center gap-2 border-b border-white/[0.06]">
+        <div className="flex gap-1 sm:gap-1.5 shrink-0">
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#febc2e]" />
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#28c840]" />
         </div>
-        <div className="flex-1 flex justify-center">
-          <div className="bg-white/[0.06] rounded-md px-3 py-1 text-[10px] text-white/40 max-w-[240px] w-full text-center truncate">
+        <div className="flex-1 flex justify-center min-w-0">
+          <div className="bg-white/[0.06] rounded-md px-2 sm:px-3 py-0.5 sm:py-1 text-[9px] sm:text-[10px] text-white/40 max-w-[180px] sm:max-w-[240px] w-full text-center truncate">
             {win.clientName.toLowerCase().replace(/\s+/g, "")}.com
           </div>
         </div>
-        <div className="w-14" />
+        <div className="w-10 sm:w-14 shrink-0" />
       </div>
 
       {/* Image */}
@@ -378,7 +409,7 @@ function SingleImage({ win }: { win: Win }) {
 
         {/* Corner ribbon with hero stat */}
         <div
-          className="absolute top-3 left-3 px-3 py-1.5 rounded-full text-[11px] font-black text-[#09090e] shadow-lg"
+          className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-black text-[#09090e] shadow-lg"
           style={{ background: win.primaryColor }}
         >
           {win.hero.value} {win.hero.label.split("·")[0].trim().toLowerCase()}
@@ -391,11 +422,11 @@ function SingleImage({ win }: { win: Win }) {
 function TrioImage({ win }: { win: Win }) {
   return (
     <div
-      className="relative rounded-2xl overflow-hidden flex items-center justify-center gap-3 sm:gap-4 py-8 sm:py-10 px-4"
+      className="relative rounded-2xl overflow-hidden flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 py-6 sm:py-10 px-2 sm:px-4"
       style={{
         background: `radial-gradient(ellipse at center, ${win.primaryColor}15 0%, #0a0b10 70%)`,
         border: "1px solid rgba(255,255,255,0.08)",
-        minHeight: 340,
+        minHeight: "clamp(240px, 60vw, 340px)",
         boxShadow: `0 40px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px ${win.primaryColor}12`,
       }}
     >
@@ -404,16 +435,16 @@ function TrioImage({ win }: { win: Win }) {
         return (
           <div
             key={idx}
-            className="relative rounded-[22px] overflow-hidden shrink-0"
+            className="relative rounded-[18px] sm:rounded-[22px] overflow-hidden shrink-0"
             style={{
-              width: isCenter ? 140 : 120,
+              width: `clamp(${isCenter ? 88 : 74}px, ${isCenter ? 26 : 22}vw, ${isCenter ? 140 : 120}px)`,
               aspectRatio: "9/16",
               background: "#000",
-              border: "3px solid #1a1c25",
+              border: "2px solid #1a1c25",
               boxShadow: isCenter
                 ? `0 25px 50px rgba(0,0,0,0.5), 0 0 0 1px ${win.primaryColor}40`
                 : "0 15px 30px rgba(0,0,0,0.35)",
-              transform: `translateY(${isCenter ? -8 : 8}px) rotate(${idx === 0 ? -4 : idx === 2 ? 4 : 0}deg)`,
+              transform: `translateY(${isCenter ? -6 : 6}px) rotate(${idx === 0 ? -4 : idx === 2 ? 4 : 0}deg)`,
               zIndex: isCenter ? 2 : 1,
             }}
           >

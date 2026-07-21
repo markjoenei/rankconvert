@@ -83,7 +83,7 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
               </a>
             </div>
 
-            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
+            <ul className="flex sm:grid sm:grid-cols-3 gap-3 sm:gap-4 mt-10 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {[
                 {
                   n: "01",
@@ -106,7 +106,7 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
               ].map((s) => (
                 <li
                   key={s.n}
-                  className="rounded-xl p-4"
+                  className="rounded-xl p-4 shrink-0 w-[82%] snap-center sm:w-auto sm:shrink"
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.08)",

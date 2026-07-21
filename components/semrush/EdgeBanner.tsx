@@ -119,11 +119,18 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
               // flex order: left=1, center=2, right=3 (hidden item is irrelevant)
               const order    = isCenter ? 2 : isRight ? 3 : isLeft ? 1 : 0;
 
+              // Mobile: only show the center card. sm+: show all 3 visible.
+              const visibilityClass = !visible
+                ? "hidden"
+                : isCenter
+                  ? "flex"
+                  : "hidden sm:flex";
+
               return (
                 <div
                   key={idx}
+                  className={visibilityClass}
                   style={{
-                    display:    visible ? "flex" : "none",
                     order,
                     flex:       "1 1 0",
                     flexDirection: "column",

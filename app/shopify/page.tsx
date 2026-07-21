@@ -241,11 +241,11 @@ export default function ShopifyPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {FEATURES.map(f => (
                 <div
                   key={f.title}
-                  className="rounded-2xl p-5 sm:p-6 flex flex-col gap-3"
+                  className="rounded-2xl p-5 sm:p-6 flex flex-col gap-3 shrink-0 w-[72%] snap-start sm:w-auto sm:shrink"
                   style={{
                     background: "#0f1017",
                     border: "1px solid rgba(255,255,255,0.07)",

@@ -93,8 +93,8 @@ export function SemrushCustomerWin() {
           </article>
         </div>
 
-        {/* Three mini client cards */}
-        <div className="grid sm:grid-cols-3 gap-4 mt-4 sm:mt-5">
+        {/* Three mini client cards — horizontal scroll on mobile, grid on sm+ */}
+        <div className="flex sm:grid sm:grid-cols-3 gap-4 mt-4 sm:mt-5 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {[
             {
               client: "YoungConstruct",
@@ -120,7 +120,7 @@ export function SemrushCustomerWin() {
           ].map((card) => (
             <article
               key={card.client}
-              className="rounded-xl p-5 flex flex-col gap-3"
+              className="rounded-xl p-5 flex flex-col gap-3 shrink-0 w-[85%] snap-center sm:w-auto sm:shrink"
               style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.07)" }}
             >
               <div className="flex items-center justify-between">

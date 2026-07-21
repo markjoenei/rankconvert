@@ -164,11 +164,11 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {NEXT_STEPS.map((s, i) => (
                 <div
                   key={s.n}
-                  className="relative rounded-2xl p-6"
+                  className="relative rounded-2xl p-6 shrink-0 w-[82%] snap-center sm:w-auto sm:shrink"
                   style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}
                 >
                   {i < NEXT_STEPS.length - 1 && (

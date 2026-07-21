@@ -278,15 +278,15 @@ function StatsStrip() {
       {/* Stats grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/[0.06]">
         {stats.map((s, i) => (
-          <div key={i} className="p-5 sm:p-7 flex flex-col gap-1">
+          <div key={i} className="p-4 sm:p-6 lg:p-7 flex flex-col gap-1">
             <div
-              className="text-[28px] sm:text-[36px] font-black leading-none tracking-tight"
-              style={{ color: "#f5c842" }}
+              className="font-black leading-none tracking-tight"
+              style={{ color: "#f5c842", fontSize: "clamp(20px, 5.5vw, 36px)" }}
             >
               {s.value}
             </div>
-            <div className="text-[13px] font-semibold text-white mt-1">{s.label}</div>
-            <div className="text-[11px] text-white/40">{s.sub}</div>
+            <div className="text-[11px] sm:text-[13px] font-semibold text-white mt-1 leading-tight">{s.label}</div>
+            <div className="text-[10px] sm:text-[11px] text-white/40 leading-tight">{s.sub}</div>
           </div>
         ))}
       </div>

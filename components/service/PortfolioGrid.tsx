@@ -51,11 +51,11 @@ export function PortfolioGrid({
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {items.map((it, i) => (
             <article
               key={i}
-              className="group rounded-2xl overflow-hidden flex flex-col"
+              className="group rounded-2xl overflow-hidden flex flex-col shrink-0 w-[85%] snap-center sm:w-auto sm:shrink"
               style={{ background: cardBg, border: `1px solid ${cardBorder}` }}
             >
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/10", background: "#0a0b10" }}>

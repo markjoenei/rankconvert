@@ -22,17 +22,17 @@ export function ServiceValueProp({ eyebrow, title, body, outcomes }: ServiceValu
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {outcomes.map((o, i) => (
               <div
                 key={i}
-                className="rounded-2xl p-5 sm:p-6"
+                className="rounded-2xl p-4 sm:p-6"
                 style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }}
               >
-                <div className="font-black tracking-tight leading-none mb-2" style={{ color: "#f5c842", fontSize: "clamp(28px, 3.6vw, 42px)" }}>
+                <div className="font-black tracking-tight leading-none mb-2" style={{ color: "#f5c842", fontSize: "clamp(22px, 5.5vw, 42px)" }}>
                   {o.value}
                 </div>
-                <div className="text-[12px] sm:text-[13px] font-semibold text-[#09090e]/75">{o.label}</div>
+                <div className="text-[11px] sm:text-[13px] font-semibold text-[#09090e]/75 leading-tight">{o.label}</div>
               </div>
             ))}
           </div>
