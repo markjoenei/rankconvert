@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { GoogleReviewsBadge } from "@/components/ui/GoogleReviewsBadge";
 
 export function SemrushHero() {
   return (
@@ -28,16 +29,9 @@ export function SemrushHero() {
 
           {/* Left — headline content */}
           <div className="text-center lg:text-left max-w-[760px] mx-auto lg:mx-0">
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 border text-[12px] font-semibold text-white/80 animate-fade-up"
-              style={{
-                background: "rgba(245,200,66,0.08)",
-                borderColor: "rgba(245,200,66,0.25)",
-              }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#f5c842] animate-pulse" />
-              5-Star Rated by Australian Business Owners
+            {/* Google Reviews badge */}
+            <div className="mb-6 animate-fade-up">
+              <GoogleReviewsBadge rating="5.0" />
             </div>
 
             <h1
@@ -63,13 +57,13 @@ export function SemrushHero() {
               style={{ animationDelay: "0.15s" }}
             >
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center justify-center px-7 h-[50px] bg-[#f5c842] text-[#09090e] text-[14px] font-bold rounded-full hover:bg-[#e6b830] transition-colors"
               >
                 Scale My Business Today
               </a>
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center justify-center px-7 h-[50px] bg-white/5 text-white text-[14px] font-semibold rounded-full border border-white/10 hover:bg-white/10 transition-colors"
               >
                 Book Free Consultation

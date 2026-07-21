@@ -91,7 +91,7 @@ export function SemrushDataStats() {
             ))}
 
             <a
-              href="#"
+              href="/contact"
               className="mt-2 inline-flex items-center justify-center px-7 h-[50px] text-[#09090e] text-[14px] font-bold rounded-full hover:bg-[#e6b830] transition-colors self-start"
               style={{ background: "#f5c842" }}
             >

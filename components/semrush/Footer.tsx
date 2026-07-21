@@ -5,28 +5,28 @@ const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] =
   {
     heading: "Quick Links",
     links: [
-      { label: "Home", href: "#" },
-      { label: "About", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "Home", href: "/" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     heading: "Services",
     links: [
-      { label: "Website Design", href: "#" },
-      { label: "SEO", href: "#" },
-      { label: "Shopify", href: "#" },
-      { label: "CRO", href: "#" },
-      { label: "Social Media", href: "#" },
+      { label: "Website Design", href: "/website-design" },
+      { label: "SEO", href: "/seo" },
+      { label: "Shopify", href: "/shopify" },
+      { label: "CRO", href: "/cro" },
+      { label: "Social Media", href: "/social-media" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About RankConvert", href: "#" },
-      { label: "Case Studies", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Contact Us", href: "#" },
+      { label: "About RankConvert", href: "/about" },
+      { label: "Case Studies", href: "/about#case-studies" },
+      { label: "Book a Call", href: "/contact" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
   {
@@ -34,7 +34,7 @@ const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] =
     links: [
       { label: "0478 186 355", href: "tel:0478186355" },
       { label: "grow@rankconvert.com.au", href: "mailto:grow@rankconvert.com.au" },
-      { label: "Melbourne, Australia", href: "#" },
+      { label: "Melbourne, Australia", href: "/contact" },
     ],
   },
 ];
@@ -125,7 +125,7 @@ export function SemrushFooter() {
               Ready to grow your business?
             </div>
             <a
-              href="#"
+              href="/contact"
               className="inline-flex items-center justify-center mt-3 px-5 h-[38px] rounded-full text-[13px] font-bold text-[#09090e] hover:bg-[#e6b830] transition-colors"
               style={{ background: "#f5c842" }}
             >
@@ -165,9 +165,9 @@ export function SemrushFooter() {
         >
           <Socials />
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px]" style={{ color: "rgba(255,255,255,0.3)" }}>
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
         </div>
 
@@ -198,7 +198,7 @@ function Socials() {
   const items: { label: string; href: string; icon: React.ReactNode }[] = [
     {
       label: "Facebook",
-      href: "#",
+      href: "https://www.facebook.com/rankconvert/",
       icon: (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
           <path d="M11 17v-7h2.4l.4-2.6H11V5.7c0-.8.2-1.3 1.3-1.3h1.5V2c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2H6v2.6h2.4V17H11z" fill="currentColor" />
@@ -207,24 +207,12 @@ function Socials() {
     },
     {
       label: "Instagram",
-      href: "#",
+      href: "https://www.instagram.com/rankconvert/",
       icon: (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
           <rect x="1.5" y="1.5" width="15" height="15" rx="4" stroke="currentColor" strokeWidth="1.4" />
           <circle cx="9" cy="9" r="3.2" stroke="currentColor" strokeWidth="1.4" />
           <circle cx="13.2" cy="4.8" r="0.8" fill="currentColor" />
-        </svg>
-      ),
-    },
-    {
-      label: "LinkedIn",
-      href: "#",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-          <rect x="1" y="1" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.4" />
-          <rect x="4" y="7" width="2" height="7" fill="currentColor" />
-          <circle cx="5" cy="5" r="1" fill="currentColor" />
-          <path d="M8 7h2v1c.4-.7 1.2-1.2 2.2-1.2 1.7 0 2.8 1 2.8 3v4h-2v-3.6c0-1-.5-1.6-1.4-1.6s-1.6.6-1.6 1.7V14H8V7z" fill="currentColor" />
         </svg>
       ),
     },
@@ -236,6 +224,8 @@ function Socials() {
         <a
           key={it.label}
           href={it.href}
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label={it.label}
           className="hover:text-white transition-colors"
           style={{ color: "rgba(255,255,255,0.4)" }}

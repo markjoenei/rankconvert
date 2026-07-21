@@ -1,8 +1,15 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 
-export function SemrushGetStarted() {
+export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: boolean } = {}) {
   return (
-    <section className="pt-20 sm:pt-36 lg:pt-52 pb-12 sm:pb-20" style={{ background: "#ffffff" }}>
+    <section
+      className={
+        bottomOverlap
+          ? "pt-20 sm:pt-36 lg:pt-52 pb-24 md:pb-[18rem] lg:pb-[24rem]"
+          : "pt-20 sm:pt-36 lg:pt-52 pb-14 sm:pb-20 lg:pb-24"
+      }
+      style={{ background: "#ffffff" }}
+    >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="relative rounded-3xl p-8 sm:p-12 lg:p-16"
@@ -62,7 +69,7 @@ export function SemrushGetStarted() {
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center justify-center px-6 h-[48px] text-[#09090e] text-[14px] font-bold rounded-full hover:bg-[#e6b830] transition-colors"
                 style={{ background: "#f5c842" }}
               >

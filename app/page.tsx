@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <SemrushHero />
       <Reveal variant="fade" duration={700}><SemrushLogoBar /></Reveal>
-      <Reveal variant="up"><SemrushEdgeBanner /></Reveal>
+      <Reveal variant="up"><SemrushEdgeBanner bottomOverlap /></Reveal>
       <Reveal variant="up"><SemrushSolutions /></Reveal>
       <Reveal variant="left"><SemrushDataStats /></Reveal>
       <Reveal variant="blur"><SemrushAIVisibility /></Reveal>

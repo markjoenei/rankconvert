@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +26,8 @@ export function SemrushNavbar() {
             width={800}
             height={389}
             priority
+            fetchPriority="high"
+            sizes="288px"
             className="h-14 sm:h-16 lg:h-[72px] w-auto"
           />
         </Link>
@@ -56,7 +58,7 @@ export function SemrushNavbar() {
             0478 186 355
           </a>
           <Link
-            href="#"
+            href="/contact"
             className="px-5 h-[36px] inline-flex items-center bg-[#f5c842] text-[#09090e] text-[13px] font-bold rounded-full hover:bg-[#e6b830] transition-colors"
           >
             Get a Free Review
@@ -112,7 +114,7 @@ export function SemrushNavbar() {
               0478 186 355
             </a>
             <Link
-              href="#"
+              href="/contact"
               className="text-center py-3 bg-[#f5c842] text-[#09090e] text-[15px] font-bold rounded-full"
             >
               Get a Free Review

@@ -27,7 +27,7 @@ const VIDEOS = [
 
 const N = VIDEOS.length;
 
-export function SemrushEdgeBanner() {
+export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: boolean } = {}) {
   const [active, setActive] = useState(0);
   const [centerPlaying, setCenterPlaying] = useState(false);
   // All 4 refs always valid — videos never unmount
@@ -62,7 +62,11 @@ export function SemrushEdgeBanner() {
 
   return (
     <section
-      className="pt-16 sm:pt-24 lg:pt-32 pb-24 md:pb-[16rem] lg:pb-[22rem]"
+      className={
+        bottomOverlap
+          ? "pt-16 sm:pt-24 lg:pt-32 pb-24 md:pb-[16rem] lg:pb-[22rem]"
+          : "py-16 sm:py-24 lg:py-32"
+      }
       style={{ background: "#f6f6f8" }}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,7 +145,7 @@ export function SemrushEdgeBanner() {
                     className="w-full h-full object-cover"
                     onEnded={() => { if (idx === active) setCenterPlaying(false); }}
                     playsInline
-                    preload="metadata"
+                    preload="none"
                   />
 
                   {/* Play/pause — only center is interactive */}

@@ -37,7 +37,7 @@ export function ServiceFAQ({
               </p>
             )}
             <a
-              href="#"
+              href="/contact"
               className="inline-flex items-center justify-center px-5 h-[40px] mt-6 text-[13px] font-bold text-[#09090e] rounded-full hover:bg-[#e6b830] transition-colors"
               style={{ background: "#f5c842" }}
             >

@@ -222,6 +222,15 @@ body {
   100% { transform: translate(0, 0)      rotate(0deg); }
 }
 
+@keyframes marquee-y-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+@keyframes marquee-y-down {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+
 .animate-float-soft     { animation: float-soft 6s ease-in-out infinite; }
 .animate-fade-up        { animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .animate-grid-drift     { animation: grid-drift 14s linear infinite; }

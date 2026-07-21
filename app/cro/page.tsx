@@ -22,11 +22,14 @@ export default function CROPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="5-Star Rated by Australian Business Owners"
-        title="Conversion Rate"
-        titleHighlight="Optimisation"
+        title="Conversion Rate Optimisation"
+        titleHighlight="Melbourne"
         subtitle="Get more revenue out of the traffic you already have. Data-led experiments, real user testing, and iterative wins that compound month after month."
-        bullets={["3.9× avg. conversion lift", "Zero extra ad spend", "Data-led experiments"]}
+        bullets={[
+          "3.9× Average Conversion Rate Lift",
+          "Zero Extra Ad Spend Required",
+          "Data-Led Experiments & Real User Testing",
+        ]}
       />
 
       <Reveal variant="up"><SemrushEdgeBanner /></Reveal>
@@ -61,7 +64,7 @@ export default function CROPage() {
 
       <Reveal variant="left"><SemrushDataStats /></Reveal>
       <Reveal variant="blur"><SemrushAIVisibility /></Reveal>
-      <Reveal variant="right"><SemrushGetStarted /></Reveal>
+      <Reveal variant="right"><SemrushGetStarted bottomOverlap /></Reveal>
       <Reveal variant="up"><SemrushSolutions /></Reveal>
 
       <Reveal variant="left">

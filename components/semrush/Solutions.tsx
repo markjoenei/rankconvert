@@ -23,7 +23,7 @@ const SOLUTIONS: Solution[] = [
     imageAlt: "SEO consultant services",
     accentColor: "#f5c842",
     cta: "SEO Services",
-    href: "#",
+    href: "/seo",
   },
   {
     tag: "Website Design",
@@ -33,7 +33,7 @@ const SOLUTIONS: Solution[] = [
     imageAlt: "Professional website design services",
     accentColor: "#60a5fa",
     cta: "Website Services",
-    href: "#",
+    href: "/website-design",
   },
   {
     tag: "Shopify",
@@ -43,7 +43,7 @@ const SOLUTIONS: Solution[] = [
     imageAlt: "Shopify developer services",
     accentColor: "#a78bfa",
     cta: "Shopify Services",
-    href: "#",
+    href: "/shopify",
   },
   {
     tag: "CRO",
@@ -53,7 +53,7 @@ const SOLUTIONS: Solution[] = [
     imageAlt: "Conversion rate optimisation services",
     accentColor: "#f97316",
     cta: "CRO Services",
-    href: "#",
+    href: "/cro",
   },
   {
     tag: "Social Media",
@@ -63,7 +63,7 @@ const SOLUTIONS: Solution[] = [
     imageAlt: "Social media marketing services",
     accentColor: "#f472b6",
     cta: "Social Media Services",
-    href: "#",
+    href: "/social-media",
   },
 ];
 

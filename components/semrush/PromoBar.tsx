@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function SemrushPromoBar() {
   return (
@@ -15,7 +15,7 @@ export function SemrushPromoBar() {
         </span>
         <span className="hidden sm:inline opacity-70">·</span>
         <Link
-          href="#"
+          href="/contact"
           className="hidden sm:inline-flex items-center gap-1 font-medium underline-offset-2 hover:underline"
         >
           Book yours today

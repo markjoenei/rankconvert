@@ -72,7 +72,7 @@ export function SemrushPreFooterCTA() {
           {/* CTA */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
-              href="#"
+              href="/contact"
               className="inline-flex items-center justify-center px-8 h-[54px] text-[#09090e] text-[14px] font-bold rounded-full hover:bg-[#e6b830] transition-colors shadow-[0_20px_50px_-12px_rgba(245,200,66,0.5)]"
               style={{ background: "#f5c842" }}
             >

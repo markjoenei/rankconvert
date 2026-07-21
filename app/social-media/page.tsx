@@ -22,11 +22,14 @@ export default function SocialMediaPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="5-Star Rated by Australian Business Owners"
-        title="Social Media"
-        titleHighlight="That Actually Sells"
-        subtitle="High-quality organic content that grows your following, builds trust, and turns scroll-stoppers into paying customers — no ad spend required."
-        bullets={["1.6M views on one post", "1,000+ followers in 3mo", "100% organic"]}
+        title="Social Media Marketing"
+        titleHighlight="Melbourne"
+        subtitle="Viral, high-quality organic content that grows your following, builds trust, and turns scroll-stoppers into paying customers — no ad spend required."
+        bullets={[
+          "1.6M Views on a Single Organic Post",
+          "1,000+ New Followers in 3 Months",
+          "100% Organic — No Paid Ad Spend",
+        ]}
       />
 
       <Reveal variant="up"><SemrushEdgeBanner /></Reveal>
@@ -61,7 +64,7 @@ export default function SocialMediaPage() {
 
       <Reveal variant="left"><SemrushDataStats /></Reveal>
       <Reveal variant="blur"><SemrushAIVisibility /></Reveal>
-      <Reveal variant="right"><SemrushGetStarted /></Reveal>
+      <Reveal variant="right"><SemrushGetStarted bottomOverlap /></Reveal>
       <Reveal variant="up"><SemrushSolutions /></Reveal>
 
       <Reveal variant="left">
