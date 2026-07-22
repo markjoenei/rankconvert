@@ -37,11 +37,11 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
           <div
             className="hidden lg:block absolute pointer-events-none select-none"
             style={{
-              right: "1%",
+              right: 0,
               bottom: 0,
-              width: "62%",
-              maxWidth: 860,
-              height: "185%",
+              width: "50%",
+              maxWidth: 640,
+              height: "170%",
               zIndex: 5,
             }}
             aria-hidden
@@ -50,8 +50,8 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
               src="/brand/happy-client.png"
               alt=""
               fill
-              className="object-contain object-bottom"
-              sizes="860px"
+              className="object-contain object-right-bottom"
+              sizes="640px"
               priority={false}
             />
           </div>
