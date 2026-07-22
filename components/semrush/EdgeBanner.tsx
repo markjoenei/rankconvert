@@ -32,8 +32,10 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
   const [centerPlaying, setCenterPlaying] = useState(false);
   // All 4 refs always valid — videos never unmount
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null, null]);
+  const touchStart = useRef<{ x: number; y: number; t: number } | null>(null);
 
   const navigate = (newActive: number) => {
+    if (newActive === active) return;
     // Pause old center (synchronously, within user gesture)
     const oldEl = videoRefs.current[active];
     if (oldEl) { oldEl.pause(); oldEl.currentTime = 0; }
@@ -46,8 +48,23 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
     setActive(newActive);
   };
 
-  const goPrev = () => navigate((active - 1 + N) % N);
-  const goNext = () => navigate((active + 1) % N);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY, t: Date.now() };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    if (!start) return;
+    touchStart.current = null;
+    const end = e.changedTouches[0];
+    const dx = end.clientX - start.x;
+    const dy = end.clientY - start.y;
+    // Ignore mostly-vertical gestures (page scrolls) and slow/tiny swipes
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    if (Date.now() - start.t > 600) return;
+    navigate(dx < 0 ? (active + 1) % N : (active - 1 + N) % N);
+  };
 
   const toggleCenter = () => {
     const el = videoRefs.current[active];
@@ -63,9 +80,9 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
   return (
     <section
       className={
-        bottomOverlap
+        (bottomOverlap
           ? "pt-16 sm:pt-24 lg:pt-32 pb-24 md:pb-[16rem] lg:pb-[22rem]"
-          : "py-16 sm:py-24 lg:py-32"
+          : "py-16 sm:py-24 lg:py-32") + " overflow-hidden"
       }
       style={{ background: "#f6f6f8" }}
     >
@@ -92,15 +109,15 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
           </p>
         </div>
 
-        {/* Carousel row */}
+        {/* Carousel row — prev/next buttons shown on sm+ only */}
         <div className="flex items-center gap-3 sm:gap-5">
 
-          {/* Prev button */}
+          {/* Prev button — desktop only */}
           <button
             type="button"
-            onClick={goPrev}
+            onClick={() => navigate((active - 1 + N) % N)}
             aria-label="Previous video"
-            className="shrink-0 w-11 h-11 rounded-full flex items-center justify-center hover:opacity-75 transition-opacity"
+            className="hidden sm:flex shrink-0 w-11 h-11 rounded-full items-center justify-center hover:opacity-75 transition-opacity"
             style={{ background: "#09090e" }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
@@ -108,99 +125,109 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
             </svg>
           </button>
 
-          {/* Video track — all 4 always mounted, 3 visible via order + display:none */}
-          <div className="flex-1 flex gap-3 sm:gap-5 py-4">
-            {VIDEOS.map((video, idx) => {
-              const offset = ((idx - active) % N + N) % N;
-              const isCenter = offset === 0;
-              const isLeft   = offset === N - 1;
-              const isRight  = offset === 1;
-              const visible  = isCenter || isLeft || isRight;
-              // flex order: left=1, center=2, right=3 (hidden item is irrelevant)
-              const order    = isCenter ? 2 : isRight ? 3 : isLeft ? 1 : 0;
+        {/* Video track — all 4 always mounted, 3 visible via order + display:none.
+            Mobile: wrapper extends past container so side cards spill ~50% outside.
+            justify-center safeguards symmetry against sub-pixel rounding. */}
+        <div
+          className="flex-1 -mx-[20%] sm:mx-0 flex justify-center gap-3 sm:gap-5 py-4 touch-pan-y select-none"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          {VIDEOS.map((video, idx) => {
+            const offset = ((idx - active) % N + N) % N;
+            const isCenter = offset === 0;
+            const isLeft   = offset === N - 1;
+            const isRight  = offset === 1;
+            const visible  = isCenter || isLeft || isRight;
+            // flex order: left=1, center=2, right=3 (hidden item is irrelevant)
+            const order    = isCenter ? 2 : isRight ? 3 : isLeft ? 1 : 0;
 
-              // Mobile: only show the center card. sm+: show all 3 visible.
-              const visibilityClass = !visible
-                ? "hidden"
-                : isCenter
-                  ? "flex"
-                  : "hidden sm:flex";
+            // Mobile: wrapper is 140% of container; card basis is % of wrapper.
+            //   center 37% of wrapper ≈ 52% of container
+            //   side   29% of wrapper ≈ 40% of container → ~50% overflows container edge
+            // sm+: equal-width flex.
+            const visibilityClass = !visible
+              ? "hidden"
+              : isCenter
+                ? "flex basis-[37%] grow-0 shrink-0 sm:basis-0 sm:grow sm:shrink"
+                : "flex basis-[29%] grow-0 shrink-0 sm:basis-0 sm:grow sm:shrink";
 
-              return (
-                <div
-                  key={idx}
-                  className={visibilityClass}
-                  style={{
-                    order,
-                    flex:       "1 1 0",
-                    flexDirection: "column",
-                    position:   "relative",
-                    aspectRatio: "3/4",
-                    borderRadius: 16,
-                    overflow:   "hidden",
-                    background: "#0f1017",
-                    border:     isCenter ? "2px solid #f5c842" : "1px solid rgba(0,0,0,0.10)",
-                    opacity:    isCenter ? 1 : 0.45,
-                    transform:  isCenter ? "scale(1.04)" : "scale(0.97)",
-                    boxShadow:  isCenter ? "0 24px 64px rgba(0,0,0,0.22)" : "none",
-                    transition: "opacity 0.3s ease, transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease",
-                  }}
-                >
-                  <video
-                    ref={el => { videoRefs.current[idx] = el; }}
-                    src={video.src}
-                    className="w-full h-full object-cover"
-                    onEnded={() => { if (idx === active) setCenterPlaying(false); }}
-                    playsInline
-                    preload="none"
-                  />
+            return (
+              <div
+                key={idx}
+                onClick={!isCenter && visible ? () => navigate(idx) : undefined}
+                className={visibilityClass}
+                style={{
+                  order,
+                  flexDirection: "column",
+                  position:   "relative",
+                  aspectRatio: "3/4",
+                  borderRadius: 16,
+                  overflow:   "hidden",
+                  background: "#0f1017",
+                  border:     isCenter ? "2px solid #f5c842" : "1px solid rgba(0,0,0,0.10)",
+                  opacity:    isCenter ? 1 : 0.45,
+                  transform:  isCenter ? "scale(1.04)" : "scale(0.97)",
+                  boxShadow:  isCenter ? "0 24px 64px rgba(0,0,0,0.22)" : "none",
+                  cursor:     !isCenter && visible ? "pointer" : undefined,
+                  transition: "opacity 0.3s ease, transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease",
+                }}
+              >
+                <video
+                  ref={el => { videoRefs.current[idx] = el; }}
+                  src={video.src}
+                  className="w-full h-full object-cover"
+                  onEnded={() => { if (idx === active) setCenterPlaying(false); }}
+                  playsInline
+                  preload="auto"
+                />
 
-                  {/* Play/pause — only center is interactive */}
-                  {isCenter && (
-                    <button
-                      type="button"
-                      onClick={toggleCenter}
-                      aria-label={centerPlaying ? "Pause" : "Play"}
-                      className="absolute inset-0 flex items-center justify-center"
-                      style={{ background: centerPlaying ? "transparent" : "rgba(0,0,0,0.40)" }}
-                    >
-                      {!centerPlaying && (
-                        <span
-                          className="w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                          style={{ background: "#f5c842" }}
-                        >
-                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                            <path d="M6 4l12 6-12 6V4z" fill="#09090e" />
-                          </svg>
-                        </span>
-                      )}
-                    </button>
-                  )}
-
-                  {/* Extra dim overlay on side cards */}
-                  {!isCenter && (
-                    <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(0,0,0,0.15)" }} />
-                  )}
-
-                  {/* Client label */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 px-4 py-3 pointer-events-none"
-                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%)" }}
+                {/* Play/pause — only center is interactive */}
+                {isCenter && (
+                  <button
+                    type="button"
+                    onClick={toggleCenter}
+                    aria-label={centerPlaying ? "Pause" : "Play"}
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{ background: centerPlaying ? "transparent" : "rgba(0,0,0,0.40)" }}
                   >
-                    <div className="text-[12px] sm:text-[13px] font-bold text-white leading-tight">{video.client}</div>
-                    <div className="text-[10px] sm:text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>{video.service}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                    {!centerPlaying && (
+                      <span
+                        className="w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                        style={{ background: "#f5c842" }}
+                      >
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                          <path d="M6 4l12 6-12 6V4z" fill="#09090e" />
+                        </svg>
+                      </span>
+                    )}
+                  </button>
+                )}
 
-          {/* Next button */}
+                {/* Extra dim overlay on side cards */}
+                {!isCenter && (
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(0,0,0,0.15)" }} />
+                )}
+
+                {/* Client label */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 px-4 py-3 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%)" }}
+                >
+                  <div className="text-[12px] sm:text-[13px] font-bold text-white leading-tight">{video.client}</div>
+                  <div className="text-[10px] sm:text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>{video.service}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+          {/* Next button — desktop only */}
           <button
             type="button"
-            onClick={goNext}
+            onClick={() => navigate((active + 1) % N)}
             aria-label="Next video"
-            className="shrink-0 w-11 h-11 rounded-full flex items-center justify-center hover:opacity-75 transition-opacity"
+            className="hidden sm:flex shrink-0 w-11 h-11 rounded-full items-center justify-center hover:opacity-75 transition-opacity"
             style={{ background: "#09090e" }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
@@ -213,13 +240,18 @@ export function SemrushEdgeBanner({ bottomOverlap = false }: { bottomOverlap?: b
         {/* Dot indicators */}
         <div className="flex items-center justify-center gap-2 mt-6">
           {VIDEOS.map((_, i) => (
-            <span
+            <button
               key={i}
-              className="rounded-full"
+              type="button"
+              onClick={() => navigate(i)}
+              aria-label={`Go to video ${i + 1}`}
+              className="rounded-full cursor-pointer"
               style={{
                 width:      i === active ? 20 : 6,
                 height:     6,
                 background: i === active ? "#f5c842" : "rgba(9,9,14,0.2)",
+                border:     "none",
+                padding:    0,
                 transition: "width 0.3s ease, background 0.3s ease",
               }}
             />

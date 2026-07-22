@@ -83,7 +83,7 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
               </a>
             </div>
 
-            <ul className="flex sm:grid sm:grid-cols-3 gap-3 sm:gap-4 mt-10 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <ul className="grid grid-cols-3 gap-2 sm:gap-4 mt-10">
               {[
                 {
                   n: "01",
@@ -106,16 +106,16 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
               ].map((s) => (
                 <li
                   key={s.n}
-                  className="rounded-xl p-4 shrink-0 w-[82%] snap-center sm:w-auto sm:shrink"
+                  className="rounded-xl p-2 sm:p-4"
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.08)",
                   }}
                 >
-                  <div className="text-[10px] font-black mb-2" style={{ color: "#f5c842" }}>{s.n}</div>
-                  <div className="text-[15px] font-bold text-white mb-1">{s.t}</div>
-                  <div className="text-[12px] mb-2" style={{ color: "rgba(255,255,255,0.45)" }}>{s.d}</div>
-                  <div className="text-[11px] font-semibold" style={{ color: "#f5c842" }}>{s.time}</div>
+                  <div className="text-[9px] sm:text-[10px] font-black mb-1 sm:mb-2" style={{ color: "#f5c842" }}>{s.n}</div>
+                  <div className="text-[10px] sm:text-[15px] font-bold text-white mb-1 leading-tight">{s.t}</div>
+                  <div className="text-[9px] sm:text-[12px] mb-1 sm:mb-2 leading-snug" style={{ color: "rgba(255,255,255,0.45)" }}>{s.d}</div>
+                  <div className="text-[9px] sm:text-[11px] font-semibold" style={{ color: "#f5c842" }}>{s.time}</div>
                 </li>
               ))}
             </ul>
