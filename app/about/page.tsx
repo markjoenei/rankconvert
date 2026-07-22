@@ -111,8 +111,8 @@ export default function AboutPage() {
               </div>
 
               <FramedPhoto
-                src="https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/rankconvert-founder-jake-marler-with-seo-client.webp?fit=1024%2C1280&ssl=1"
-                alt="RankConvert founder Jake Marler with client Jono East, owner of Sprociety"
+                src="https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/IMG_8752-1.webp?fit=1024%2C1280&ssl=1"
+                alt="RankConvert founder Jake Marler with client Daniel Miller, founder of XL Fitness"
                 label="Founder + client"
                 sublabel="Jake Marler (right) with Jono East, owner of Sprociety."
                 theme="light"
@@ -132,8 +132,8 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <FramedPhoto
-                  src="https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/IMG_8752-1.webp?fit=1024%2C1280&ssl=1"
-                  alt="RankConvert founder Jake Marler with client Daniel Miller, founder of XL Fitness"
+                  src="https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/rankconvert-founder-jake-marler-with-seo-client.webp?fit=1024%2C1280&ssl=1"
+                  alt="RankConvert founder Jake Marler with client Jono East, owner of Sprociety"
                   label="Founder + client"
                   sublabel="Jake Marler with Daniel Miller, founder of XL Fitness & 2nd Hand Fitness."
                   theme="dark"
