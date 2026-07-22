@@ -5,7 +5,7 @@ export function SemrushGetStarted({ bottomOverlap = false }: { bottomOverlap?: b
     <section
       className={
         bottomOverlap
-          ? "pt-20 sm:pt-36 lg:pt-52 pb-24 md:pb-[18rem] lg:pb-[24rem]"
+          ? "pt-20 sm:pt-36 lg:pt-52 pb-40 sm:pb-52 md:pb-[20rem] lg:pb-[26rem]"
           : "pt-20 sm:pt-36 lg:pt-52 pb-14 sm:pb-20 lg:pb-24"
       }
       style={{ background: "#ffffff" }}

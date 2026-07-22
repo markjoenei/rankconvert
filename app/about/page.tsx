@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import { SemrushDataStats } from "@/components/semrush/DataStats";
 import { SemrushGetStarted } from "@/components/semrush/GetStarted";
 import { SemrushSolutions } from "@/components/semrush/Solutions";
 import { SemrushPreFooterCTA } from "@/components/semrush/PreFooterCTA";
 import { Reveal } from "@/components/ui/Reveal";
 import { GoogleReviewsBadge } from "@/components/ui/GoogleReviewsBadge";
-import { LeadForm } from "@/components/ui/LeadForm";
 import { FramedPhoto } from "@/components/ui/FramedPhoto";
 
 export const metadata: Metadata = {
@@ -64,57 +61,26 @@ export default function AboutPage() {
         />
 
         <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-14 sm:pb-20 lg:pb-24">
-          <div className="grid lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-14 items-center">
-
-            {/* Left — content */}
-            <div className="text-center lg:text-left max-w-[760px] mx-auto lg:mx-0">
-              <div className="mb-6 animate-fade-up">
-                <GoogleReviewsBadge rating="5.0" />
-              </div>
-
-              <h1
-                className="text-[32px] sm:text-[48px] lg:text-[68px] font-black text-white leading-[1.03] tracking-[-2px] mb-5 animate-fade-up"
-                style={{ animationDelay: "0.05s" }}
-              >
-                The RankConvert{" "}
-                <span style={{ color: "#f5c842" }}>Story</span>
-              </h1>
-
-              <p
-                className="text-[15px] sm:text-[18px] text-white/65 leading-[1.65] mb-8 max-w-[620px] mx-auto lg:mx-0 animate-fade-up"
-                style={{ animationDelay: "0.1s" }}
-              >
-                RankConvert exists to help capable business owners turn confusion into clarity, and websites into
-                reliable growth engines, through honest strategy, transparency, and results that actually matter.
-              </p>
-
-              <div
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 animate-fade-up"
-                style={{ animationDelay: "0.15s" }}
-              >
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-7 h-[50px] bg-[#f5c842] text-[#09090e] text-[14px] font-bold rounded-full hover:bg-[#e6b830] transition-colors"
-                >
-                  Scale My Business Today
-                </Link>
-                <a
-                  href="tel:0478186355"
-                  className="inline-flex items-center justify-center gap-2 px-6 h-[50px] bg-white/5 text-white text-[14px] font-semibold rounded-full border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-                    <path
-                      d="M2 3.5a1.5 1.5 0 011.5-1.5h1.4a1 1 0 01.95.68l.7 2.09a1 1 0 01-.24 1.02L5.4 6.8a8 8 0 003.8 3.8l1-.9a1 1 0 011.02-.24l2.1.7a1 1 0 01.68.95V12.5A1.5 1.5 0 0112.5 14C6.7 14 2 9.3 2 3.5z"
-                      stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"
-                    />
-                  </svg>
-                  0478 186 355
-                </a>
-              </div>
+          <div className="text-center max-w-[760px] mx-auto">
+            <div className="mb-6 animate-fade-up flex justify-center">
+              <GoogleReviewsBadge rating="5.0" />
             </div>
 
-            {/* Right — form */}
-            <LeadForm />
+            <h1
+              className="whitespace-nowrap font-black text-white leading-[1.03] tracking-[-2px] mb-5 animate-fade-up"
+              style={{ animationDelay: "0.05s", fontSize: "clamp(24px, 7.5vw, 68px)" }}
+            >
+              The RankConvert{" "}
+              <span style={{ color: "#f5c842" }}>Story</span>
+            </h1>
+
+            <p
+              className="text-[15px] sm:text-[18px] text-white/65 leading-[1.65] max-w-[620px] mx-auto animate-fade-up"
+              style={{ animationDelay: "0.1s" }}
+            >
+              RankConvert exists to help capable business owners turn confusion into clarity, and websites into
+              reliable growth engines, through honest strategy, transparency, and results that actually matter.
+            </p>
           </div>
         </div>
       </section>
@@ -148,7 +114,7 @@ export default function AboutPage() {
                 src="https://i0.wp.com/rankconvert.com.au/wp-content/uploads/2026/05/rankconvert-founder-jake-marler-with-seo-client.webp?fit=1024%2C1280&ssl=1"
                 alt="RankConvert founder Jake Marler with client Jono East, owner of Sprociety"
                 label="Founder + client"
-                sublabel="Jake Marler (left) with Jono East, owner of Sprociety."
+                sublabel="Jake Marler (right) with Jono East, owner of Sprociety."
                 theme="light"
               />
             </div>

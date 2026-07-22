@@ -4,6 +4,8 @@ import { SeoRankWidget } from "@/components/service/SeoRankWidget";
 import { LeadForm } from "@/components/ui/LeadForm";
 import { ServicePainPoint } from "@/components/service/ServicePainPoint";
 import { ServiceValueProp } from "@/components/service/ServiceValueProp";
+import { ServiceProcess } from "@/components/service/ServiceProcess";
+import { ServiceComparison } from "@/components/service/ServiceComparison";
 import { ServiceFAQ } from "@/components/service/ServiceFAQ";
 import { PortfolioGrid } from "@/components/service/PortfolioGrid";
 import { SemrushEdgeBanner } from "@/components/semrush/EdgeBanner";
@@ -116,6 +118,46 @@ export default function SEOPage() {
         />
       </Reveal>
 
+      {/* UX enhancement: transparent SEO process */}
+      <Reveal variant="up">
+        <ServiceProcess
+          eyebrow="Our SEO process"
+          title="How we rank Melbourne businesses at the top of Google."
+          intro="Consistent SEO isn't a mystery. It's the same evidence-led process, repeated every month, tailored to your service area, industry and buyer intent."
+          theme="light"
+          steps={[
+            {
+              n: "01",
+              title: "Keyword & competitor audit",
+              body: "Deep dive into search intent, competitor gaps and the highest-commercial-intent keywords in your niche.",
+              deliverable: "Keyword map + gap report",
+              timing: "Week 1",
+            },
+            {
+              n: "02",
+              title: "Technical & on-page fixes",
+              body: "Site speed, indexation, schema, internal links, meta and heading hierarchy — the foundation Google demands before rankings.",
+              deliverable: "Technical SEO fix log",
+              timing: "Week 2–3",
+            },
+            {
+              n: "03",
+              title: "Content & authority building",
+              body: "Publish revenue pages, service-area pages and topic clusters. Earn quality Australian backlinks every month.",
+              deliverable: "Content calendar + link report",
+              timing: "Month 2 onward",
+            },
+            {
+              n: "04",
+              title: "Reporting & refinement",
+              body: "Transparent monthly reports on rankings, traffic and leads. We double down on what's working and kill what isn't.",
+              deliverable: "Monthly rank + leads report",
+              timing: "Ongoing",
+            },
+          ]}
+        />
+      </Reveal>
+
       {/* UX enhancement: Google SERP preview showing what ranking looks like */}
       <Reveal variant="blur">
         <section
@@ -218,6 +260,31 @@ export default function SEOPage() {
           subtitle="Just some of our clients we have helped rank on page 1 in Google, turning their website traffic into paying customers."
           items={CASE_STUDIES}
           theme="dark"
+        />
+      </Reveal>
+
+      {/* UX enhancement: SEO vs paid ads comparison */}
+      <Reveal variant="up">
+        <ServiceComparison
+          eyebrow="How SEO compares"
+          title="SEO vs Google Ads vs Meta Ads."
+          intro="Every channel has its place. Here's a plain-English look at why compounding SEO usually wins for Australian service and e-commerce businesses over a 12-month horizon."
+          theme="light"
+          columns={[
+            { name: "Google Ads", sub: "$$$ per click" },
+            { name: "Meta Ads", sub: "Interruption-based" },
+            { name: "SEO", sub: "Compounding asset", highlight: true },
+          ]}
+          rows={[
+            { feature: "Speed to first leads", values: ["Days", "Days", "3–6 months"] },
+            { feature: "Cost per lead over time", values: ["Rises", "Rises", "Falls"] },
+            { feature: "Traffic if you stop paying", values: [false, false, true] },
+            { feature: "Captures active buyer intent", values: [true, false, true] },
+            { feature: "Compounds year over year", values: [false, false, true] },
+            { feature: "Full ownership of the asset", values: [false, false, true] },
+            { feature: "Trust and authority from ranking", values: [false, false, true] },
+          ]}
+          cta={{ label: "Get a Free SEO Strategy Call", href: "/contact" }}
         />
       </Reveal>
 
