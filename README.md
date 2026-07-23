@@ -1,5 +1,48 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## WordPress CMS
+
+The `/blog` and `/blog/[slug]` routes use WordPress as a headless CMS through
+the WordPress REST API. Copy `.env.example` to `.env.local` and configure:
+
+```bash
+WORDPRESS_API_URL=https://cms.rankconvert.com.au/wp-json/wp/v2
+WORDPRESS_REVALIDATE_SECRET=your-long-random-secret
+```
+
+During development, the API defaults to the existing public endpoint at
+`https://rankconvert.com.au/wp-json/wp/v2`.
+
+Published content is cached for one hour. For immediate updates, configure a
+WordPress webhook to send a `POST` request to:
+
+```text
+https://your-next-site.com/api/wordpress/revalidate
+```
+
+Send the shared secret in the `x-wordpress-webhook-secret` request header. A
+JSON body containing the post slug enables targeted route revalidation:
+
+```json
+{ "slug": "your-post-slug", "post_type": "post", "status": "publish" }
+```
+
+Before pointing `rankconvert.com.au` at this Next.js frontend, move WordPress
+to a separate origin such as `cms.rankconvert.com.au` and update
+`WORDPRESS_API_URL`. Otherwise the frontend and CMS will compete for the same
+domain and routes.
+
+### Netlify deployment
+
+Connect this repository to Netlify as a Next.js site. The committed
+`netlify.toml` uses `npm run build` and publishes the `.next` output through
+Netlify's OpenNext adapter, which preserves route handlers, ISR and on-demand
+revalidation.
+
+In **Project configuration → Environment variables**, create both
+`WORDPRESS_API_URL` and `WORDPRESS_REVALIDATE_SECRET`. Ensure the variables are
+available to Builds and Functions, then trigger a new production deploy.
+
 ## Getting Started
 
 First, run the development server:

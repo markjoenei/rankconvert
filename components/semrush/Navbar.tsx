@@ -10,6 +10,7 @@ const NAV_ITEMS: { label: string; href: string }[] = [
   { label: "Website Design", href: "/website-design" },
   { label: "SEO", href: "/seo" },
   { label: "Shopify", href: "/shopify" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

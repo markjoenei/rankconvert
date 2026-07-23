@@ -24,6 +24,7 @@ const GROUPS: Group[] = [
     items: [
       { label: "Home", href: "/", hint: "Melbourne Digital Marketing Services" },
       { label: "About", href: "/about", hint: "The RankConvert story, team and values" },
+      { label: "Blog", href: "/blog", hint: "SEO and digital marketing insights" },
       { label: "Contact", href: "/contact", hint: "Book a free strategy call or send a message" },
     ],
   },

@@ -11,7 +11,32 @@ const basePath =
 
 const nextConfig: NextConfig = {
 
-  output: "standalone",
+  async redirects() {
+    return [
+      {
+        source:
+          "/2026/03/27/why-melbourne-businesses-are-turning-to-seo-for-real-growth",
+        destination:
+          "/blog/why-melbourne-businesses-are-turning-to-seo-for-real-growth",
+        permanent: true,
+      },
+      {
+        source: "/shopify-developers",
+        destination: "/shopify",
+        permanent: true,
+      },
+      {
+        source: "/social-media-marketing-2",
+        destination: "/social-media",
+        permanent: true,
+      },
+      {
+        source: "/social-media-marketing",
+        destination: "/cro",
+        permanent: true,
+      },
+    ];
+  },
 
   basePath: basePath || undefined,
   assetPrefix: basePath || undefined,
@@ -37,6 +62,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "rankconvert.com.au",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cms.rankconvert.com.au",
         pathname: "/**",
       },
     ],
