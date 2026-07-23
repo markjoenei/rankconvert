@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ServicePainPoint } from "@/components/service/ServicePainPoint";
 import { ServiceValueProp } from "@/components/service/ServiceValueProp";
 import { ServiceProcess } from "@/components/service/ServiceProcess";
-import { ServiceComparison } from "@/components/service/ServiceComparison";
 import { ServiceFAQ } from "@/components/service/ServiceFAQ";
 import { PortfolioGrid } from "@/components/service/PortfolioGrid";
 import { GoogleReviewsBadge } from "@/components/ui/GoogleReviewsBadge";
@@ -276,32 +275,25 @@ export default function WebsiteDesignPage() {
         <ServiceProcess
           eyebrow="Our website design process"
           title="How we build websites that actually convert."
-          intro="A transparent, four-step process that removes surprises and delivers a launch-ready website designed for real Australian business outcomes."
+          intro="A transparent, three-step process that removes surprises and delivers a launch-ready website designed for real Australian business outcomes."
           theme="dark"
           steps={[
             {
               n: "01",
-              title: "Strategy & wireframes",
-              body: "Free strategy call to lock in goals, target keywords, brand direction, page structure and conversion pathways.",
-              deliverable: "Full page-map + wireframe",
-              timing: "Week 1",
+              title: "Strategy, UX & design",
+              body: "We lock in goals, keywords and conversion pathways, then create custom wireframes, high-fidelity designs and SEO-first copy.",
+              deliverable: "Page map + approved design",
+              timing: "Weeks 1–4",
             },
             {
               n: "02",
-              title: "Design & copy",
-              body: "Custom-designed mockups built for your industry, paired with SEO-first copywriting written for humans — not templates.",
-              deliverable: "High-fidelity design + copy",
-              timing: "Week 2–4",
-            },
-            {
-              n: "03",
               title: "Build & QA",
               body: "Hand-coded build with sub-2-second page loads, Core Web Vitals in the green and every form tested end-to-end.",
               deliverable: "Staging site + QA report",
               timing: "Week 4–6",
             },
             {
-              n: "04",
+              n: "03",
               title: "Launch & handover",
               body: "Migration, 301 redirects, analytics, editing training and 30 days of post-launch support so nothing is left dangling.",
               deliverable: "Live site + training",
@@ -385,32 +377,6 @@ export default function WebsiteDesignPage() {
             </div>
           </div>
         </section>
-      </Reveal>
-
-      {/* UX enhancement: DIY vs cheap freelancer vs RankConvert comparison */}
-      <Reveal variant="up">
-        <ServiceComparison
-          eyebrow="How we compare"
-          title="DIY builder vs cheap freelancer vs RankConvert."
-          intro="The real cost of a website isn't the build fee. It's what the site does — or fails to do — for your business over the next three to five years."
-          theme="light"
-          columns={[
-            { name: "Wix / Squarespace DIY", sub: "$300–$1k" },
-            { name: "Cheap freelancer", sub: "$1.5k–$3k" },
-            { name: "RankConvert", sub: "Made-to-perform", highlight: true },
-          ]}
-          rows={[
-            { feature: "Custom design for your brand", values: [false, "Limited", true] },
-            { feature: "SEO-first structure & meta", values: [false, false, true] },
-            { feature: "Conversion-focused copywriting", values: [false, false, true] },
-            { feature: "Sub-2s load & Core Web Vitals", values: [false, "Sometimes", true] },
-            { feature: "Mobile-first, thumb-friendly UX", values: ["Basic", "Basic", true] },
-            { feature: "Analytics & pixel setup", values: [false, false, true] },
-            { feature: "Post-launch support & training", values: [false, "Limited", true] },
-            { feature: "Australian team, no lock-in", values: ["N/A", "Varies", true] },
-          ]}
-          cta={{ label: "Book Your Free Website Strategy Call", href: "/contact" }}
-        />
       </Reveal>
 
       <Reveal variant="left"><SemrushDataStats /></Reveal>

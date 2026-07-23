@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type Solution = {
@@ -70,6 +70,7 @@ const SOLUTIONS: Solution[] = [
 export function SemrushSolutions() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
+  const [openSolution, setOpenSolution] = useState<number | null>(null);
 
   const scroll = (dir: "prev" | "next") => {
     const el = scrollerRef.current;
@@ -175,8 +176,14 @@ export function SemrushSolutions() {
         >
           {SOLUTIONS.map((s, i) => (
             <li key={i} style={{ borderColor: "rgba(255,255,255,0.07)" }}>
-              <div className="flex items-center justify-between gap-4 py-4">
-                <div>
+              <button
+                type="button"
+                className="flex w-full items-center justify-between gap-4 py-4 text-left"
+                aria-expanded={openSolution === i}
+                aria-controls={`mobile-solution-${i}`}
+                onClick={() => setOpenSolution(openSolution === i ? null : i)}
+              >
+                <div className="min-w-0">
                   <div className="mb-1">
                     <span
                       className="inline-block text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
@@ -191,11 +198,41 @@ export function SemrushSolutions() {
                   </div>
                   <div className="text-[15px] font-semibold text-white leading-[1.3]">{s.title}</div>
                 </div>
-                <span className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center shrink-0">
+                <span
+                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-transform duration-300"
+                  style={{ transform: openSolution === i ? "rotate(45deg)" : "rotate(0deg)" }}
+                  aria-hidden
+                >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
                     <path d="M7 3v8M3 7h8" stroke="white" strokeWidth="1.4" strokeLinecap="round" />
                   </svg>
                 </span>
+              </button>
+              <div
+                id={`mobile-solution-${i}`}
+                className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                  openSolution === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="pb-5 pr-12">
+                    <p className="mb-4 text-[13px] leading-[1.65] text-white/55">{s.body}</p>
+                    <a
+                      href={s.href}
+                      className="inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 text-[12px] font-bold"
+                      style={{
+                        color: s.accentColor,
+                        background: `${s.accentColor}14`,
+                        border: `1px solid ${s.accentColor}40`,
+                      }}
+                    >
+                      {s.cta}
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
+                        <path d="M3 2h5v5M8 2L2 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </li>
           ))}

@@ -5,7 +5,6 @@ import { LeadForm } from "@/components/ui/LeadForm";
 import { ServicePainPoint } from "@/components/service/ServicePainPoint";
 import { ServiceValueProp } from "@/components/service/ServiceValueProp";
 import { ServiceProcess } from "@/components/service/ServiceProcess";
-import { ServiceComparison } from "@/components/service/ServiceComparison";
 import { ServiceFAQ } from "@/components/service/ServiceFAQ";
 import { PortfolioGrid } from "@/components/service/PortfolioGrid";
 import { SemrushEdgeBanner } from "@/components/semrush/EdgeBanner";
@@ -218,7 +217,7 @@ export default function ShopifyPage() {
         <ServiceProcess
           eyebrow="Our Shopify build process"
           title="How we ship high-converting Shopify stores."
-          intro="A proven four-stage build that turns your product catalogue into a conversion-optimised store ready to scale on paid and organic channels."
+          intro="A proven three-stage build that turns your product catalogue into a conversion-optimised store ready to scale on paid and organic channels."
           theme="dark"
           steps={[
             {
@@ -230,20 +229,13 @@ export default function ShopifyPage() {
             },
             {
               n: "02",
-              title: "Custom theme design",
-              body: "Bespoke Shopify theme designed to your brand — never a stock template. Product, collection and cart flows planned for conversion.",
-              deliverable: "High-fidelity design system",
-              timing: "Week 2–3",
+              title: "Custom design & build",
+              body: "We design and build a bespoke Shopify theme around your brand, then configure product migration, subscriptions, bundles, reviews and upsells.",
+              deliverable: "Conversion-ready staging store",
+              timing: "Week 2–6",
             },
             {
               n: "03",
-              title: "Build, migration & apps",
-              body: "Theme built in Liquid. Product migration, subscriptions, bundles, reviews and upsell apps configured and QA'd.",
-              deliverable: "Fully-loaded staging store",
-              timing: "Week 4–6",
-            },
-            {
-              n: "04",
               title: "Launch & optimisation",
               body: "301 redirects, GA4, GTM, pixels, conversion tracking, QA — then live launch with a 30-day post-launch CRO sprint.",
               deliverable: "Live store + CRO report",
@@ -308,32 +300,6 @@ export default function ShopifyPage() {
             </div>
           </div>
         </section>
-      </Reveal>
-
-      {/* UX enhancement: Shopify build tier comparison */}
-      <Reveal variant="up">
-        <ServiceComparison
-          eyebrow="Which Shopify build is right?"
-          title="Stock theme vs cheap developer vs RankConvert."
-          intro="The build fee is nothing compared to the revenue a properly conversion-optimised store earns over the next three to five years. Here's the honest side-by-side."
-          theme="light"
-          columns={[
-            { name: "Stock Shopify theme", sub: "$0–$400" },
-            { name: "Cheap overseas dev", sub: "$500–$2k" },
-            { name: "RankConvert", sub: "Built to convert", highlight: true },
-          ]}
-          rows={[
-            { feature: "Custom design for your brand", values: [false, "Limited", true] },
-            { feature: "3–5% target conversion rate", values: [false, false, true] },
-            { feature: "Subscriptions, bundles, upsells", values: [false, "Some apps", true] },
-            { feature: "SEO-ready product & collection pages", values: [false, false, true] },
-            { feature: "Sub-2s load & Core Web Vitals", values: ["Depends", false, true] },
-            { feature: "Pixels + analytics + tracking", values: [false, "Basic", true] },
-            { feature: "Australian team, no lock-in", values: ["N/A", "Overseas", true] },
-            { feature: "Post-launch CRO optimisation", values: [false, false, true] },
-          ]}
-          cta={{ label: "Book a Free Shopify Strategy Call", href: "/contact" }}
-        />
       </Reveal>
 
       <Reveal variant="left"><SemrushDataStats /></Reveal>

@@ -128,27 +128,20 @@ export default function SEOPage() {
           steps={[
             {
               n: "01",
-              title: "Keyword & competitor audit",
-              body: "Deep dive into search intent, competitor gaps and the highest-commercial-intent keywords in your niche.",
-              deliverable: "Keyword map + gap report",
-              timing: "Week 1",
+              title: "Research & technical foundation",
+              body: "We map high-intent keywords and competitor gaps, then fix site speed, indexation, schema, internal links and on-page structure.",
+              deliverable: "Keyword map + technical fix log",
+              timing: "Weeks 1–3",
             },
             {
               n: "02",
-              title: "Technical & on-page fixes",
-              body: "Site speed, indexation, schema, internal links, meta and heading hierarchy — the foundation Google demands before rankings.",
-              deliverable: "Technical SEO fix log",
-              timing: "Week 2–3",
-            },
-            {
-              n: "03",
               title: "Content & authority building",
               body: "Publish revenue pages, service-area pages and topic clusters. Earn quality Australian backlinks every month.",
               deliverable: "Content calendar + link report",
               timing: "Month 2 onward",
             },
             {
-              n: "04",
+              n: "03",
               title: "Reporting & refinement",
               body: "Transparent monthly reports on rankings, traffic and leads. We double down on what's working and kill what isn't.",
               deliverable: "Monthly rank + leads report",
@@ -276,7 +269,7 @@ export default function SEOPage() {
             { name: "SEO", sub: "Compounding asset", highlight: true },
           ]}
           rows={[
-            { feature: "Speed to first leads", values: ["Days", "Days", "3–6 months"] },
+            { feature: "Speed to first leads", values: ["2–4 weeks", "2–4 weeks", "1–3 months"] },
             { feature: "Cost per lead over time", values: ["Rises", "Rises", "Falls"] },
             { feature: "Traffic if you stop paying", values: [false, false, true] },
             { feature: "Captures active buyer intent", values: [true, false, true] },

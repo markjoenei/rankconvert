@@ -54,7 +54,7 @@ export function ServiceProcess({
           </p>
         </div>
 
-        <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {steps.map((s, i) => (
             <li
               key={i}
